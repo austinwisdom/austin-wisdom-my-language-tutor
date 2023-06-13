@@ -1,0 +1,160 @@
+@use './variables' as *;
+
+/******************** media query ********************/
+/* tablet */
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+/* desktop */
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+/******************** type kit ********************/
+/* mobile */
+@mixin mobile-page-header {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+}
+
+@mixin mobile-subheader {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+@mixin mobile-labels-links-buttons {
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+}
+
+@mixin mobile-table-header {
+    font-size: 0.6875rem;
+    line-height: 1rem;
+}
+
+@mixin mobile-body-large {
+    font-size: 0.9375rem;
+    line-height: 1.625rem;
+}
+
+@mixin mobile-body-medium {
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+}
+
+@mixin mobile-body-small {
+    font-size: 0.6875rem;
+    line-height: 1rem;
+}
+
+/* tablet & desktop */
+@mixin tablet-page-header {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+@mixin tablet-subheader {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+@mixin tablet-labels-links-buttons {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+}
+
+@mixin tablet-table-header {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+}
+
+@mixin tablet-body-large {
+    font-size: 1rem;
+    line-height: 1.75rem;
+}
+
+@mixin tablet-body-medium {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+}
+
+@mixin tablet-body-small {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+}
+
+/******************** CTA Call to Action Buttons ********************/
+@mixin cta-primary {
+    border: none;
+    color: $white;
+    background-color: $yellow;
+    height: 2.25rem;
+    width: 100%;
+    border-radius: 20px;
+
+    @include tablet {
+        height: 2.375rem;
+        width: auto;
+        padding: 0 1rem;
+    }
+
+    /* hover state */
+    &:hover {
+        @include tablet {
+            background-color: $dark-yellow;
+        }
+    }
+}
+
+@mixin cta-secondary {
+    border: none;
+    color: $yellow;
+    background-color: $white;
+    height: 2.25rem;
+    width: 100%;
+    border-radius: 20px;
+
+    @include tablet {
+        height: 2.375rem;
+        width: auto;
+        padding: 0 1rem;
+    }
+
+    /* hover state */
+    &:hover {
+        @include tablet {
+            color: $light-stone;
+            border: 1px solid $light-stone;
+        }
+    }
+}
+
+/******************** form fields ********************/
+@mixin form-field {
+    outline: none;
+    height: 2.25rem;
+    width: 100%;
+    padding: 0 1rem;
+    margin-top: 4px;
+    border-radius: 20px;
+    border: 1px solid $yellow;
+
+    @include tablet {
+        height: 2.375rem;
+        width: auto;
+    }
+
+    /* active state */
+    &:focus {
+        border: 1px solid $dark-yellow;
+    }
+
+    /* error state */
+    &:invalid {
+        border: 1px solid $red;
+    }
+}

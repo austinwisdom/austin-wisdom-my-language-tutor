@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
-import headerImage from "../../assets/half-header.png";
-import profilePic from "../../assets/austin-profile-pic.png"
+import headerImage from "../../assets/images/half-header.png";
+import profilePic from "../../assets/images/austin-profile-pic.png"
 
 import "./Header.scss";
 
