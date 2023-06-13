@@ -90,22 +90,26 @@
 /******************** CTA Call to Action Buttons ********************/
 @mixin cta-primary {
     border: none;
-    color: $white;
-    background-color: $yellow;
+    color: $black;
+    background-color: $white;
+    border: 1px solid $black;
     height: 2.25rem;
     width: 100%;
     border-radius: 20px;
+    padding: 0 2.5rem;
 
     @include tablet {
         height: 2.375rem;
         width: auto;
-        padding: 0 1rem;
+        padding: 0 2rem;
     }
 
     /* hover state */
     &:hover {
+        transform: scale(1.2);
+        
         @include tablet {
-            background-color: $dark-yellow;
+            background-color: $yellow;
         }
     }
 }

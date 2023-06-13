@@ -13,9 +13,9 @@ const Header = () => {
       </div>
       <nav className="header__nav">
           <ul className="header__ul">
-            <li className="header__li"><NavLink className="header__navlink"><button><h4>SPEAK</h4></button></NavLink></li>
-            <li className="header__li"><NavLink className="header__navlink"><button><h4>STUDY</h4></button></NavLink></li>
-            <li className="header__li"><NavLink><button><img className="header__profile-img" src={profilePic}/></button></NavLink></li>
+            <li className="header__li"><NavLink className="header__navlink"><button className="header__button">SPEAK</button></NavLink></li>
+            <li className="header__li"><NavLink className="header__navlink"><button className="header__button">STUDY</button></NavLink></li>
+            <li className="header__li"><NavLink><button className="header__button--img"><img className="header__profile-img" src={profilePic}/></button></NavLink></li>
           </ul>
         </nav>
     </header>

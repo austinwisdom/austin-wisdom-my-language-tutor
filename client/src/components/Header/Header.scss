@@ -1,3 +1,6 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .header {
 
     &__container {
@@ -36,10 +39,28 @@
     }
 
     &__profile-img {
-        max-width: 3rem;
-        max-height: 3rem;
-        min-width: 3rem;
-        min-height: 3rem;
+        max-width: 3.5rem;
+        max-height: 3.5rem;
+        min-width: 3.5rem;
+        min-height: 3.5rem;
         border-radius: 50%;
     }
+
+    &__button {
+        @include cta-primary;
+
+        &--img {
+            background-color: $yellow;
+            padding: .35rem;
+            border-radius: 50%;
+            border: none;
+
+            &:hover {
+                background-color: $dark-yellow;
+                transform: scale(1.2);
+            }
+        }
+    }
+
+
 }
