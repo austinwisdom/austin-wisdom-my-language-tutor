@@ -7,7 +7,7 @@ import "./Header.scss";
 
 const Header = () => {
   return (
-    <div className="header__container">
+    <header className="header__container">
       <div>
         <img className="header__image" src={headerImage} />
       </div>
@@ -15,10 +15,10 @@ const Header = () => {
           <ul className="header__ul">
             <li className="header__li"><NavLink className="header__navlink"><button><h4>SPEAK</h4></button></NavLink></li>
             <li className="header__li"><NavLink className="header__navlink"><button><h4>STUDY</h4></button></NavLink></li>
-            <li className="header__li header__li--image"><NavLink><img className="header__profile-img" src={profilePic}/></NavLink></li>
+            <li className="header__li"><NavLink><button><img className="header__profile-img" src={profilePic}/></button></NavLink></li>
           </ul>
         </nav>
-    </div>
+    </header>
   );
 };
 
