@@ -14,7 +14,8 @@
     }
 
     &__nav {
-        display: flex;
+        display: flex;  
+        align-items: center; 
     }
 
     &__ul {
@@ -23,6 +24,10 @@
         justify-content: flex-end;
         column-gap: 2rem;
         margin: 0 5.5vw 0 0;
+
+        border-radius: 50px;
+        height: 5rem;
+        padding: .5rem 1.5rem;
     }
 
     &__li {
@@ -31,7 +36,7 @@
 
     &__navlink {
         text-decoration: none;
-        color: black;
+        color: $light-stone;
 
         &:focus {
             border-bottom: solid #ffde59 2px;
