@@ -1,16 +1,17 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import Homepage from './pages/Homepage/Homepage';
+import Header from './components/header/header';
+
 import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Greatness starts here.</h1>
-      </header>
+
       <BrowserRouter>
+        <Header />
         <Routes>
-          <Route path="/" />
+          <Route path="/" element={<Homepage />}/>
           <Route path="/my-profile" />
           <Route path="/my-tutor" />
           <Route path="/my-tutor/conversation/:id" />
@@ -18,7 +19,6 @@ function App() {
           <Route path="/community" />
         </Routes>
       </BrowserRouter>
-    </div>
   );
 }
 
