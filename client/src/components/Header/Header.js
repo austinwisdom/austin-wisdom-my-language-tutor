@@ -1,23 +1,25 @@
 import { NavLink } from "react-router-dom";
 
-import headerImage from "../../assets/header.png"
+import headerImage from "../../assets/header.png";
+import profilePic from "../../assets/austin-profile-pic.png"
 
-import "./Header.scss"
+import "./Header.scss";
 
 const Header = () => {
-    return (
-        <div className="header__container">
-            <img className="header__image" src={headerImage}/>
-            <nav>
-                <ul className="header__ul">
-                    <NavLink className="header__navlink">MyTutor</NavLink>
-                    <NavLink className="header__navlink">STUDY</NavLink>
-                    {/* user profile pic goes here with dropdown */}
-                    <img></img>
-                </ul>
-            </nav>
-        </div>
-    );
+  return (
+    <div>
+      <div className="header__container">
+        <img className="header__image" src={headerImage} />
+      </div>
+      <nav>
+          <ul className="header__ul">
+            <li className="header__li"><NavLink className="header__navlink">SPEAK</NavLink></li>
+            <li className="header__li"><NavLink className="header__navlink">STUDY</NavLink></li>
+            <li className="header__li"><NavLink><img className="header__profile-img" src={profilePic}/></NavLink></li>
+          </ul>
+        </nav>
+    </div>
+  );
 };
 
 export default Header;
