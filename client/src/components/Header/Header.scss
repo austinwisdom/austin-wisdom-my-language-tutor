@@ -3,17 +3,20 @@
     &__container {
         display: flex;
         flex-direction: row;
-        // justify-content: space-between;
         width: 100%;
     }
 
     &__image {
-        width: 75%;
+        width: 80%;
+    }
+
+    &__nav {
+        display: flex;
     }
 
     &__ul {
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         justify-content: flex-end;
         column-gap: 2rem;
         margin: 0 5.5vw 0 0;
@@ -21,6 +24,15 @@
 
     &__li {
         list-style-type: none;
+
+        &--image {
+            background-color: #ffde59;
+            max-width: 3.5rem;
+            max-height: 3.5rem;
+            min-width: 3.5rem;
+            min-height: 3.5rem;
+            border-radius: 50%;
+        }
     }
 
     &__navlink {
@@ -34,6 +46,9 @@
 
     &__profile-img {
         max-width: 3rem;
+        max-height: 3rem;
+        min-width: 3rem;
+        min-height: 3rem;
         border-radius: 50%;
     }
 }
