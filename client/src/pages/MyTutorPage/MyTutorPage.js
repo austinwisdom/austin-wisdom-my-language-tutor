@@ -35,6 +35,17 @@ const MyTutorPage = () => {
                     <button className="info__button">Talking about the weekend</button>
                     <button className="info__button">Checking into an Airbnb</button>
                 </div>
+
+                <div>
+                    <h2 className="info__heading">Language</h2>
+                    <img src="" className="info__img--language" alt="language selector for "/>
+                    <img src="" className="info__img--language" alt="language selector for "/>
+                    <img src="" className="info__img--language" alt="language selector for "/>
+                    <img src="" className="info__img--language" alt="language selector for "/>
+                    <img src="" className="info__img--language" alt="language selector for "/>
+                    <img src="" className="info__img--language" alt="language selector for "/>
+                
+                </div>
     
             </section>
             
