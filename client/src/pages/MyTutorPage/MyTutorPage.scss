@@ -1,0 +1,77 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.page {
+    &__container {
+
+        display: flex;
+        flex-direction: row;
+
+        &--tutor {
+            border: 5px solid $yellow;
+            border-radius: 8px;
+    
+            width: 60%;
+            margin-left: 5%;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            min-height: 30rem;
+            max-height: 30rem;
+        }
+
+        &--info {
+            border-radius: 8px;
+            background-color: $yellow;
+
+            width: 25%;
+            margin-left: 5%;
+            margin-bottom: 2rem;
+        }
+
+        &--conversation {
+            height: 15rem;
+            border: 1px solid $light-stone;
+            margin: 1rem;
+            border-radius: 8px;
+            overflow: scroll;
+        }
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 15rem;
+
+    margin-right: 1rem;
+
+    &__textarea {
+        width: 60%;
+        height: 5rem;
+        resize: none;
+        overflow: hidden;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+
+        &:focus {
+            border: 1px solid $black;
+        }
+    }
+
+    &__button {
+
+        &--submit {
+            @include cta-primary;
+
+            @include tablet {
+                width: 15%;
+                
+                &:hover {
+                    transform: scale(1);
+                }
+            }
+
+        }
+    }
+}
