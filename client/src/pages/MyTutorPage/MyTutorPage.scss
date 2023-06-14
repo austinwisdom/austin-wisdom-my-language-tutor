@@ -19,21 +19,53 @@
             max-height: 30rem;
         }
 
-        &--info {
-            border-radius: 8px;
-            background-color: $yellow;
-
-            width: 25%;
-            margin-left: 5%;
-            margin-bottom: 2rem;
-        }
-
         &--conversation {
             height: 15rem;
             border: 1px solid $light-stone;
             margin: 1rem;
             border-radius: 8px;
             overflow: scroll;
+        }
+    }
+}
+
+.info {
+    &__container {
+        border-radius: 8px;
+        background-color: $yellow;
+        width: 25%;
+        margin-left: 5%;
+        margin-bottom: 2rem;
+
+        &--buttons {
+            display: flex;
+            flex-direction: column;
+        }
+    }    
+
+    &__heading {
+        text-align: center;
+        border-bottom: 1px solid $white;
+        margin-bottom: 0;
+        padding-bottom: 1rem;
+    }
+
+    &__ul {
+        margin: 0;
+    }
+
+    &__button {
+        width: 100%;
+        padding: .5rem;
+        border: none;
+        border-bottom: 1px solid $white;
+        border-radius: 2px;
+        text-align: center;
+        background-color: $yellow;
+
+        &:hover {
+            transform: scale(1.1);
+            border: 1px solid $light-stone;
         }
     }
 }
