@@ -10,7 +10,7 @@ const MyTutorPage = () => {
     return (
         <main className="page__container">
             <section className="page__container--tutor">
-                <h1>MyTUTOR</h1>
+                {/* <h1 className="page__heading">MyTUTOR</h1> */}
                 <div className="page__container--conversation" contenteditable>
                 </div>
                 <form className="form" onSubmit={onSubmit}>
@@ -27,12 +27,14 @@ const MyTutorPage = () => {
             <section className="info__container">
                 <h2 className="info__heading">Topics</h2>
         
+                <div className="info__container--buttons">
                     <button className="info__button">Ordering a drink</button>
                     <button className="info__button">Talking about hobbies</button>
                     <button className="info__button">Introducing a friend</button>
                     <button className="info__button">Asking for directions</button>
                     <button className="info__button">Talking about the weekend</button>
                     <button className="info__button">Checking into an Airbnb</button>
+                </div>
     
             </section>
             

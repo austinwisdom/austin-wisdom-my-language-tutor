@@ -20,12 +20,16 @@
         }
 
         &--conversation {
-            height: 15rem;
+            height: 18rem;
             border: 1px solid $light-stone;
             margin: 1rem;
             border-radius: 8px;
             overflow: scroll;
         }
+    }
+
+    &__heading {
+        margin-left: 1rem;
     }
 }
 
