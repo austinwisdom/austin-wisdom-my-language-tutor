@@ -77,7 +77,7 @@ const MyTutorPage = () => {
         <main className="page__container">
             <section className="page__container--tutor">
                 <div className="page__container--conversation">
-                    <p className="conversation">{aiGreeting[topic]}</p>
+                    <p className="conversation__phrase conversation__phrase--ai">{aiGreeting[topic]}</p>
                     {/* map rest of convo here */}
                 </div>
                 <form className="form" onSubmit={onSubmit}>
