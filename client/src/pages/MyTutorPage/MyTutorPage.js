@@ -40,7 +40,7 @@ const MyTutorPage = () => {
     const onSubmit = (e) => {
         e.preventDefault()
 
-        fetch(endPoint, {
+        fetch(`${endPoint}/my-tutor/${language}/${topic}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -49,6 +49,7 @@ const MyTutorPage = () => {
         })
             .then((res) => res.json())
             .then((data) => {
+                console.log(data)
                 setResponse(data.message)
                 trackConversation(message, response)
             })
@@ -58,7 +59,7 @@ const MyTutorPage = () => {
         <main className="page__container">
             <section className="page__container--tutor">
                 {/* <h1 className="page__heading">MyTUTOR</h1> */}
-                <div className="page__container--conversation" contenteditable>
+                <div className="page__container--conversation">
                 </div>
                 <form className="form" onSubmit={onSubmit}>
                     <label id="userInput"></label>
