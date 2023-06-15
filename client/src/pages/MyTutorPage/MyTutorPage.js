@@ -15,13 +15,26 @@ import "./MyTutorPage.scss"
 
 const MyTutorPage = () => {
 
+    //======================Selected language & prompt==========
     let { choosenLanguage, choosenTopic } = useParams()
     const [language, setLanguage] = useState()
     const [topic, setTopic] = useState()
+    const [aiGreeting, _setAIGreeting] = useState(
+        [
+            "What can I get for you today?",
+            "What's your favorite thing to do in your free time?",
+            "Hey, who's your new friend?",
+            "Do you need some help? You look a little lost.",
+            "What are your plans for the weekend?",
+            "Thanks for choosing to stay at our Airbnb! How long will you be staying?",
+            "If you had one week to spend $20,000, where would you go, and what would you do?"
+        ])
 
+    //======================User input (message) & AI response==========
     const [message, setMessage] = useState("");
     const [response, setResponse] = useState("");
     const [userConversation, setUserConversation] = useState([]);
+
 
     useEffect(() => {
         choosenLanguage ? setLanguage(choosenLanguage) : setLanguage("en")
@@ -37,6 +50,10 @@ const MyTutorPage = () => {
         return userConversation;
       };
 
+    const onClickHandler = (e) => {
+        setTopic(e.target.id)
+    }
+
     const onSubmit = (e) => {
         e.preventDefault()
 
@@ -49,17 +66,19 @@ const MyTutorPage = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
                 setResponse(data.message)
                 trackConversation(message, response)
+                // REMOVE THIS LATER
+                console.log(data)
             })
 
     }
     return (
         <main className="page__container">
             <section className="page__container--tutor">
-                {/* <h1 className="page__heading">MyTUTOR</h1> */}
                 <div className="page__container--conversation">
+                    <p className="conversation">{aiGreeting[topic]}</p>
+                    {/* map rest of convo here */}
                 </div>
                 <form className="form" onSubmit={onSubmit}>
                     <label id="userInput"></label>
@@ -78,13 +97,13 @@ const MyTutorPage = () => {
                 <h2 className="info__heading"> Topics</h2>
         
                 <div className="info__container--buttons">
-                    <Link to={"/my-tutor/en/0"}><button id={0} className="info__button">Ordering a drink</button></Link>
-                    <Link to={"/my-tutor/en/1"}><button id={1} className="info__button">Talking about hobbies</button></Link>
-                    <Link to={"/my-tutor/en/2"}><button id={2} className="info__button">Introducing a friend</button></Link>
-                    <Link to={"/my-tutor/en/3"}><button id={3} className="info__button">Asking for directions</button></Link>
-                    <Link to={"/my-tutor/en/4"}><button id={4} className="info__button">Talking about the weekend</button></Link>
-                    <Link to={"/my-tutor/en/5"}><button id={5} className="info__button">Checking into an Airbnb</button></Link>
-                    <Link to={"/my-tutor/en/6"}><button id={6} className="info__button">Dream vacation</button></Link>
+                    <Link to={"/my-tutor/en/0"}><button onClick={onClickHandler} id={0} className="info__button">Ordering a drink</button></Link>
+                    <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">Talking about hobbies</button></Link>
+                    <Link to={"/my-tutor/en/2"}><button onClick={onClickHandler} id={2} className="info__button">Introducing a friend</button></Link>
+                    <Link to={"/my-tutor/en/3"}><button onClick={onClickHandler} id={3} className="info__button">Asking for directions</button></Link>
+                    <Link to={"/my-tutor/en/4"}><button onClick={onClickHandler} id={4} className="info__button">Talking about the weekend</button></Link>
+                    <Link to={"/my-tutor/en/5"}><button onClick={onClickHandler} id={5} className="info__button">Checking into an Airbnb</button></Link>
+                    <Link to={"/my-tutor/en/6"}><button onClick={onClickHandler} id={6} className="info__button">Dream vacation</button></Link>
                 </div>
 
                 <div>
