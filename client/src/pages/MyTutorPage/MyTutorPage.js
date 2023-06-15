@@ -1,5 +1,12 @@
 import { Link } from "react-router-dom";
 
+import flagUS from "../../assets/icons/flag-us.png"
+import flagES from "../../assets/icons/flag-es.png"
+import flagBR from "../../assets/icons/flag-br.png"
+import flagDE from "../../assets/icons/flag-de.png"
+import flagJP from "../../assets/icons/flag-jp.png"
+import flagFR from "../../assets/icons/flag-fr.png"
+
 import "./MyTutorPage.scss"
 
 const MyTutorPage = () => {
@@ -38,12 +45,18 @@ const MyTutorPage = () => {
 
                 <div>
                     <h2 className="info__heading">Language</h2>
-                    <img src="" className="info__img--language" alt="language selector for "/>
-                    <img src="" className="info__img--language" alt="language selector for "/>
-                    <img src="" className="info__img--language" alt="language selector for "/>
-                    <img src="" className="info__img--language" alt="language selector for "/>
-                    <img src="" className="info__img--language" alt="language selector for "/>
-                    <img src="" className="info__img--language" alt="language selector for "/>
+                    <div>
+                        <div>
+                            <img src={flagUS} className="info__img--language" alt="language selector for "/>
+                            <img src={flagBR} className="info__img--language" alt="language selector for "/>
+                            <img src={flagES} className="info__img--language" alt="language selector for "/>
+                        </div>
+                        <div>
+                            <img src={flagDE} className="info__img--language" alt="language selector for "/>
+                            <img src={flagJP} className="info__img--language" alt="language selector for "/>
+                            <img src={flagFR} className="info__img--language" alt="language selector for "/>
+                        </div>
+                    </div>
                 
                 </div>
     
