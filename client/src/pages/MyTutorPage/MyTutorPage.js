@@ -1,4 +1,7 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useParams } from "react-router-dom";
+
+import { useState, useEffect } from "react";
 
 import flagUS from "../../assets/icons/flag-us.png"
 import flagES from "../../assets/icons/flag-es.png"
@@ -10,6 +13,15 @@ import flagFR from "../../assets/icons/flag-fr.png"
 import "./MyTutorPage.scss"
 
 const MyTutorPage = () => {
+
+    let { choosenLanguage, choosenTopic } = useParams()
+    const [language, setLanguage] = useState()
+    const [topic, setTopic] = useState()
+
+    useEffect(() => {
+        choosenLanguage ? setLanguage(choosenLanguage) : setLanguage("en")
+        choosenTopic ? setTopic(choosenTopic) : setTopic(0)
+    }, [])
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -32,29 +44,30 @@ const MyTutorPage = () => {
                 </form>
             </section>
             <section className="info__container">
-                <h2 className="info__heading">Topics</h2>
+                <h2 className="info__heading"> Topics</h2>
         
                 <div className="info__container--buttons">
-                    <button className="info__button">Ordering a drink</button>
-                    <button className="info__button">Talking about hobbies</button>
-                    <button className="info__button">Introducing a friend</button>
-                    <button className="info__button">Asking for directions</button>
-                    <button className="info__button">Talking about the weekend</button>
-                    <button className="info__button">Checking into an Airbnb</button>
+                    <button id={0} className="info__button">Ordering a drink</button>
+                    <button id={1} className="info__button">Talking about hobbies</button>
+                    <button id={2} className="info__button">Introducing a friend</button>
+                    <button id={3} className="info__button">Asking for directions</button>
+                    <button id={4} className="info__button">Talking about the weekend</button>
+                    <button id={5} className="info__button">Checking into an Airbnb</button>
+                    <button id={6} className="info__button">Dream vacation</button>
                 </div>
 
                 <div>
                     <h2 className="info__heading">Language</h2>
                     <div>
-                        <div>
-                            <img src={flagUS} className="info__img--language" alt="language selector for "/>
-                            <img src={flagBR} className="info__img--language" alt="language selector for "/>
-                            <img src={flagES} className="info__img--language" alt="language selector for "/>
+                        <div className="info__div--buttons">
+                            <button className="info__button--flag"><img src={flagUS} className="info__img--language" alt="language selector for "/></button>
+                            <button className="info__button--flag"><img src={flagBR} className="info__img--language" alt="language selector for "/></button>
+                            <button className="info__button--flag"><img src={flagES} className="info__img--language" alt="language selector for "/></button>
                         </div>
-                        <div>
-                            <img src={flagDE} className="info__img--language" alt="language selector for "/>
-                            <img src={flagJP} className="info__img--language" alt="language selector for "/>
-                            <img src={flagFR} className="info__img--language" alt="language selector for "/>
+                        <div className="info__div--buttons">
+                            <button className="info__button--flag"><img src={flagDE} className="info__img--language" alt="language selector for "/></button>
+                            <button className="info__button--flag"><img src={flagJP} className="info__img--language" alt="language selector for "/></button>
+                            <button className="info__button--flag"><img src={flagFR} className="info__img--language" alt="language selector for "/></button>
                         </div>
                     </div>
                 

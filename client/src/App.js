@@ -16,7 +16,8 @@ function App() {
           <Route path="/" element={<Homepage />}/>
           <Route path="/my-profile" />
           <Route path="/my-tutor" element={<MyTutorPage />}/>
-          <Route path="/my-tutor/conversation/:id" />
+          <Route path="/my-tutor/:language" element={<MyTutorPage />}/>
+          <Route path="/my-tutor/:language/:topic" element={<MyTutorPage />} />
           <Route path="/study-space" />
           <Route path="/community" />
         </Routes>
