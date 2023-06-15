@@ -14,7 +14,7 @@ const Header = () => {
       <nav className="header__nav">
         <ul className="header__ul">
           <li className="header__li">
-            <NavLink className="header__navlink">
+            <NavLink to={"/my-tutor/en/0"} className="header__navlink">
               <button className="header__button">MyTUTOR</button>
             </NavLink>
           </li>
