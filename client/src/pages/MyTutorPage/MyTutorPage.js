@@ -21,7 +21,7 @@ const MyTutorPage = () => {
     const [topic, setTopic] = useState()
     const [aiGreeting, _setAIGreeting] = useState(
         [
-            "What can I get started for you today?",
+            "Barista: What can I get started for you today?",
             "What's your favorite thing to do in your free time?",
             "Hey, who's your new friend?",
             "Do you need some help? You look a little lost.",
@@ -82,6 +82,10 @@ const MyTutorPage = () => {
                 <div className="page__container--conversation">
                     <p className="conversation__phrase conversation__phrase--ai">{aiGreeting[topic]}</p>
                     {/* map rest of convo here */}
+                    {userConversation.map((phrase) => {
+                        return <p key={phrase} className="conversation__phrase">{phrase}</p>
+                    })}
+                    <p className="conversation__phrase">{response}</p>
                 </div>
                 <form className="form" onSubmit={onSubmit}>
                     <label id="userInput"></label>
