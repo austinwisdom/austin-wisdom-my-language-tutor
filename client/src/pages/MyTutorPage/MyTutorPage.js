@@ -22,12 +22,12 @@ const MyTutorPage = () => {
     const [aiGreeting, _setAIGreeting] = useState(
         [
             "Barista: What can I get started for you today?",
-            "What's your favorite thing to do in your free time?",
-            "Hey, who's your new friend?",
-            "Do you need some help? You look a little lost.",
-            "What are your plans for the weekend?",
-            "Thanks for choosing to stay at our Airbnb! How long will you be staying?",
-            "If you had one week to spend $20,000, where would you go, and what would you do?"
+            "Roko: What's your favorite thing to do in your free time?",
+            "Roko: Hey, who's your new friend?",
+            "Mr. Smith: Do you need some help? You look a little lost.",
+            "Roko: What are your plans for the weekend?",
+            "Addison: Thanks for choosing to stay at our Airbnb! How long will you be staying?",
+            "Alex: If you had one week to spend $20,000, where would you go, and what would you do?"
         ])
 
     //======================User input (message) & AI response==========
@@ -81,7 +81,6 @@ const MyTutorPage = () => {
             <section className="page__container--tutor">
                 <div className="page__container--conversation">
                     <p className="conversation__phrase conversation__phrase--ai">{aiGreeting[topic]}</p>
-                    {/* map rest of convo here */}
                     {userConversation.map((phrase) => {
                         return <p key={phrase} className="conversation__phrase">{phrase}</p>
                     })}
