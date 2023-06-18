@@ -21,7 +21,7 @@ const MyTutorPage = () => {
     const [topic, setTopic] = useState()
     const [aiGreeting, _setAIGreeting] = useState(
         [
-            "What can I get for you today?",
+            "What can I get started for you today?",
             "What's your favorite thing to do in your free time?",
             "Hey, who's your new friend?",
             "Do you need some help? You look a little lost.",
