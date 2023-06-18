@@ -71,6 +71,9 @@ const MyTutorPage = () => {
                 // REMOVE THIS LATER
                 console.log(data)
             })
+            .catch((err) => {
+                console.log("Unable to send user response")
+            })
 
     }
     return (
