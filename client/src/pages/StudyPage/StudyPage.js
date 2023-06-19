@@ -23,7 +23,7 @@ const StudyPage = () => {
                 id: 0,
                 lesson_title: "What's up?",
                 info_title: "Informal Greetings",
-                info: "What's up? is one of the most common ways Americans greet each other."
+                info: "\"What's up?\" is one of the most common ways that Americans greet each other. "
             },
             {
                 id: 1,
