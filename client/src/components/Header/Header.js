@@ -19,7 +19,7 @@ const Header = () => {
             </NavLink>
           </li>
           <li className="header__li">
-            <NavLink className="header__navlink">
+            <NavLink to={"/study"} className="header__navlink">
               <button className="header__button">STUDY</button>
             </NavLink>
           </li>

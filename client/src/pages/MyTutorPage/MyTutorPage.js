@@ -68,8 +68,6 @@ const MyTutorPage = () => {
             .then((data) => {
                 setResponse(data.message)
                 trackConversation(message, response)
-                // REMOVE THIS LATER
-                console.log(data)
             })
             .catch((err) => {
                 console.log("Unable to send user response")
@@ -113,8 +111,8 @@ const MyTutorPage = () => {
                 </div>
 
                 <div>
-                    <h2 className="info__heading">Language</h2>
-                    <div>
+                    {/* <h2 className="info__heading">Language</h2> */}
+                    <div className="info__container--languages">
                         <div className="info__div--buttons">
                             <Link><button id="es" className="info__button--flag"><img src={flagUS} className="info__img--language" alt="language selector for "/></button></Link>
                             <Link><button id="pt" className="info__button--flag"><img src={flagBR} className="info__img--language" alt="language selector for "/></button></Link>

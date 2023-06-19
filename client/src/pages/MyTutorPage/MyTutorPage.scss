@@ -45,6 +45,10 @@
             display: flex;
             flex-direction: column;
         }
+
+        &--languages {
+            padding-top: 1rem;
+        }
     }    
 
     &__heading {
@@ -79,10 +83,11 @@
         border-radius: 2px;
         text-align: center;
         background-color: $yellow;
+        font-size: 1rem;
 
         &:hover {
             transform: scale(1.1);
-            border: 1px solid $light-stone;
+            border: 1px solid $white;
         }
 
         &--flag {
@@ -141,7 +146,8 @@
 
     &__phrase {
         letter-spacing: .5px;
-        font-size: 1.75rem;
+        line-height: 2.25rem;
+        font-size: 1.5rem;
         max-width: 60%;
 
         &--ai {

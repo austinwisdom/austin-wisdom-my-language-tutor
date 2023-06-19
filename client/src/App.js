@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage/Homepage';
 import MyTutorPage from './pages/MyTutorPage/MyTutorPage';
 import Header from './components/Header/Header';
+import StudyPage from './pages/StudyPage/StudyPage';
 
 import './App.scss';
 
@@ -17,7 +18,7 @@ function App() {
           <Route path="/my-tutor" element={<MyTutorPage />}/>
           <Route path="/my-tutor/:language" element={<MyTutorPage />}/>
           <Route path="/my-tutor/:language/:topic" element={<MyTutorPage />} />
-          <Route path="/study-space" />
+          <Route path="/study" element={<StudyPage />} />
           <Route path="/community" />
         </Routes>
       </BrowserRouter>
