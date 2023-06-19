@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import flagUS from "../../assets/icons/flag-us.png"
@@ -14,10 +15,39 @@ import "./StudyPage.scss"
 
 const StudyPage = () => {
 
-    const langArrays = {
-        lang: "en",
-        words_en: ["See you later!", "What's up?", "That's awesome!", "cool", "smart"],
-        words_pt: ["Até logo!", "Fala aí!", "Que legal!", "legal, beleza", "inteligente"]
+    const [lessonSlide, setLessonSlide] = useState(0)
+
+    const [lessonSlideArray] = useState(
+        [
+            {
+                id: 0,
+                info: "This is a test for the lesson"
+            },
+            {
+                id: 1,
+                info: "This is the second slide"
+            }
+        ]
+    )
+
+    const langArrays = [
+        {
+            lang: "en",
+            words_en: ["See you later!", "What's up?", "That's awesome!", "cool", "smart"],
+            words_pt: ["Até logo!", "Fala aí!", "Que legal!", "legal, beleza", "inteligente"]
+        }
+    ]
+
+    const goBack = (e) => {
+        if (lessonSlide > 0) {
+            setLessonSlide(lessonSlide -1)
+        }
+    }
+
+    const goForward = (e) => {
+        if (lessonSlide < lessonSlideArray.length) {
+            setLessonSlide(lessonSlide +1)
+        }
     }
 
     const onSubmit = (e) => {
@@ -32,17 +62,21 @@ const StudyPage = () => {
         <main className="page__container">
             <section className="page__container--tutor">
                 <div className="page__container--conversation">
-                    <p className="conversation__phrase conversation__phrase--ai">Daily Lesson</p>
+                    <h2 className="conversation__phrase conversation__phrase--ai">Daily Lesson</h2>
+                    <p>{lessonSlideArray[lessonSlide].info}</p>
                 </div>
                 <form className="form" onSubmit={onSubmit}>
-                    <label id="userInput"></label>
+                    {/* <label id="userInput"></label>
                     <textarea 
                         className="form__textarea"
                         name="userInput"
                         id="userInput"
                     >
-                    </textarea>
-                    <button className="form__button--submit">SEND</button>
+                    </textarea> */}
+                    <div className="lesson__buttons--div">
+                        <button onClick={goBack} className="form__button--back">BACK</button>
+                        <button onClick={goForward} className="form__button--next">NEXT</button>
+                    </div>
                 </form>
             </section>
 

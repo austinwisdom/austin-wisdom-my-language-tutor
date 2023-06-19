@@ -1,6 +1,15 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+.lesson {
+
+    &__buttons {
+
+        &--div {
+            display: flex;
+        }
+    }
+}
 
 .words {
 
