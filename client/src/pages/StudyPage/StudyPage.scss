@@ -8,6 +8,45 @@
         &--div {
             display: flex;
         }
+
+        &--navigate {
+            @include cta-primary;
+            margin-left: 1rem;
+        }
+    }
+    
+    &__container {
+
+        &--info {
+            margin-left: .5rem;
+            margin-top: 1rem;
+        }
+    }
+
+    &__title {
+        width: 100%;
+        font-size: 2rem;
+    }
+
+    &__div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1rem 3rem;
+
+        &--dropdowns {
+            display: flex;
+            border-radius: 8px;
+            background-color: $yellow;
+        }
+    }
+
+    &__dropdown {
+        margin: 1rem 3rem;
+
+        &--heading {
+            margin: 0;
+        }
     }
 }
 
@@ -64,12 +103,13 @@
     }
 
     &__subheading {
-        color: $white;
+        color: $black;
         font-size: 1.5rem;
         margin-bottom: .25rem;
     }
     &__p {
-        color: $black;
+        color: $white;
+        font-size: 1.25rem;
         margin-top: .35rem;
     }
 }

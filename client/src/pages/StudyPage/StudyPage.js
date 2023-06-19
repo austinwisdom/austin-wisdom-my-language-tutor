@@ -21,7 +21,9 @@ const StudyPage = () => {
         [
             {
                 id: 0,
-                info: "This is a test for the lesson"
+                lesson_title: "What's up?",
+                info_title: "Informal Greetings",
+                info: "What's up? is one of the most common ways Americans greet each other."
             },
             {
                 id: 1,
@@ -45,7 +47,7 @@ const StudyPage = () => {
     }
 
     const goForward = (e) => {
-        if (lessonSlide < lessonSlideArray.length) {
+        if (lessonSlide < lessonSlideArray.length-1) {
             setLessonSlide(lessonSlide +1)
         }
     }
@@ -61,9 +63,18 @@ const StudyPage = () => {
     return (
         <main className="page__container">
             <section className="page__container--tutor">
+            <div className="lesson__div">
+                <h2 className="lesson__title">Lesson: {lessonSlideArray[lessonSlide].lesson_title}</h2>
+                <div className="lesson__div--dropdowns">
+                    <div className="lesson__dropdown"><h3 className="lesson__dropdown--heading">Lesson</h3></div>
+                    <div className="lesson__dropdown"><h3 className="lesson__dropdown--heading">Level</h3></div>
+                </div>
+            </div>
                 <div className="page__container--conversation">
-                    <h2 className="conversation__phrase conversation__phrase--ai">Daily Lesson</h2>
-                    <p>{lessonSlideArray[lessonSlide].info}</p>
+                    <div className="lesson__container--info">
+                        <h3>{lessonSlideArray[lessonSlide].info_title}</h3>
+                        <p>{lessonSlideArray[lessonSlide].info}</p>
+                    </div>
                 </div>
                 <form className="form" onSubmit={onSubmit}>
                     {/* <label id="userInput"></label>
@@ -74,8 +85,8 @@ const StudyPage = () => {
                     >
                     </textarea> */}
                     <div className="lesson__buttons--div">
-                        <button onClick={goBack} className="form__button--back">BACK</button>
-                        <button onClick={goForward} className="form__button--next">NEXT</button>
+                        <button className="lesson__buttons--navigate" onClick={goBack}>BACK</button>
+                        <button className="lesson__buttons--navigate" onClick={goForward}>NEXT</button>
                     </div>
                 </form>
             </section>
