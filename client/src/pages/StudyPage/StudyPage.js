@@ -7,6 +7,9 @@ import flagDE from "../../assets/icons/flag-de.png"
 import flagJP from "../../assets/icons/flag-jp.png"
 import flagFR from "../../assets/icons/flag-fr.png"
 
+
+import speakerIcon from "../../assets/icons/speaker-black-yellow.png"
+
 import "./StudyPage.scss"
 
 const StudyPage = () => {
@@ -43,22 +46,66 @@ const StudyPage = () => {
                 </form>
             </section>
 
-            <section className="info__container">
-                <h2 className="info__heading"> My words</h2>
-        
-                <div className="info__container--buttons">
-                    <Link to={"/my-tutor/en/0"}><button id={0} className="info__button">Ordering a drink</button></Link>
-                    <Link to={"/my-tutor/en/1"}><button id={1} className="info__button">Talking about hobbies</button></Link>
-                    <Link to={"/my-tutor/en/2"}><button id={2} className="info__button">Introducing a friend</button></Link>
-                    <Link to={"/my-tutor/en/3"}><button id={3} className="info__button">Asking for directions</button></Link>
-                    <Link to={"/my-tutor/en/4"}><button id={4} className="info__button">Talking about the weekend</button></Link>
-                    <Link to={"/my-tutor/en/5"}><button id={5} className="info__button">Checking into an Airbnb</button></Link>
-                    <Link to={"/my-tutor/en/6"}><button id={6} className="info__button">Dream vacation</button></Link>
-                </div>
+            <section className="words__container--section">
+                <article className="words__article">
+                    <h2 className="info__heading"> My words</h2>
+                    <div className="words__container">
+                        <div className="words__word">
+                            <button className="words__button--icon"><img className="words__img--icon" src={speakerIcon} alt="speaker icon, click for text to speech on each phrase"/></button>
+                            <div className="words__word--div">
+                                <h3 className="words__subheading">See you later!</h3>
+                                <p className="words__p">Até logo!</p>
+                            </div>
+                        </div>
+                        <div className="words__word">
+                            <button className="words__button--icon"><img className="words__img--icon" src={speakerIcon} alt="speaker icon, click for text to speech on each phrase"/></button>
+                            <div className="words__word--div">
+                                <h3 className="words__subheading">See you later!</h3>
+                                <p className="words__p">Até logo!</p>
+                            </div>
+                        </div>
+                        <div className="words__word">
+                            <button className="words__button--icon"><img className="words__img--icon" src={speakerIcon} alt="speaker icon, click for text to speech on each phrase"/></button>
+                            <div className="words__word--div">
+                                <h3 className="words__subheading">See you later!</h3>
+                                <p className="words__p">Até logo!</p>
+                            </div>
+                        </div>
+                        <div className="words__word">
+                            <button className="words__button--icon"><img className="words__img--icon" src={speakerIcon} alt="speaker icon, click for text to speech on each phrase"/></button>
+                            <div className="words__word--div">
+                                <h3 className="words__subheading">See you later!</h3>
+                                <p className="words__p">Até logo!</p>
+                            </div>
+                        </div>
+                        <div className="words__word">
+                            <button className="words__button--icon"><img className="words__img--icon" src={speakerIcon} alt="speaker icon, click for text to speech on each phrase"/></button>
+                            <div className="words__word--div">
+                                <h3 className="words__subheading">See you later!</h3>
+                                <p className="words__p">Até logo!</p>
+                            </div>
+                        </div>
+                        <div className="words__word">
+                            <button className="words__button--icon"><img className="words__img--icon" src={speakerIcon} alt="speaker icon, click for text to speech on each phrase"/></button>
+                            <div className="words__word--div">
+                                <h3 className="words__subheading">See you later!</h3>
+                                <p className="words__p">Até logo!</p>
+                            </div>
+                        </div>
+                        <div className="words__word">
+                            <button className="words__button--icon"><img className="words__img--icon" src={speakerIcon} alt="speaker icon, click for text to speech on each phrase"/></button>
+                            <div className="words__word--div">
+                                <h3 className="words__subheading">See you later!</h3>
+                                <p className="words__p">Até logo!</p>
+                            </div>
+                        </div>
+             
+                    </div>
+                </article>
 
-                <div>
-                    {/* <h2 className="info__heading">Language</h2> */}
+                {/* <div>
                     <div className="info__container--languages">
+                    <h2 className="info__heading"> My languages</h2>
                         <div className="info__div--buttons">
                             <Link><button onClick={onClickHandler} id="es" className="info__button--flag"><img src={flagUS} className="info__img--language" alt="language selector for "/></button></Link>
                             <Link><button onClick={onClickHandler} id="pt" className="info__button--flag"><img src={flagBR} className="info__img--language" alt="language selector for "/></button></Link>
@@ -70,7 +117,7 @@ const StudyPage = () => {
                             <Link><button onClick={onClickHandler} id="fr" className="info__button--flag"><img src={flagFR} className="info__img--language" alt="language selector for "/></button></Link>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </section>
         </main>
     );

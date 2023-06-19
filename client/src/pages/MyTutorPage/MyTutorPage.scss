@@ -36,7 +36,7 @@
 .info {
     &__container {
         border-radius: 8px;
-        background-color: $yellow;
+        // background-color: $yellow;
         width: 25%;
         margin-left: 5%;
         margin-bottom: 2rem;
@@ -70,8 +70,9 @@
 
     &__img {
         &--language {
-            width: 60px;
+            width: 2.8125rem;
             border-radius: 50%;
+            border: .5px solid $light-stone;
         }
     }
 
@@ -92,8 +93,8 @@
 
         &--flag {
             border: none;
-            border-radius: 50%;
-            background-color: $yellow;
+            border-radius: 30%;
+            background-color: $white;
 
             margin: .25rem;
 
