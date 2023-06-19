@@ -64,10 +64,28 @@ const StudyPage = () => {
         <main className="page__container">
             <section className="page__container--tutor">
             <div className="lesson__div">
-                <h2 className="lesson__title">Lesson: {lessonSlideArray[lessonSlide].lesson_title}</h2>
+                <div>
+                    <h2 className="lesson__title">{lessonSlideArray[lessonSlide].lesson_title}</h2>
+                    <p>Advanced I: Lesson: 01</p>
+                </div>
                 <div className="lesson__div--dropdowns">
-                    <div className="lesson__dropdown"><h3 className="lesson__dropdown--heading">Lesson</h3></div>
-                    <div className="lesson__dropdown"><h3 className="lesson__dropdown--heading">Level</h3></div>
+                    <div className="lesson__dropdown">
+                        <h3 className="lesson__dropdown--heading">Lesson</h3>
+                        <div className="lesson__dropdown--content">
+                            <Link><p>01: Informal Greetings</p></Link>
+                        </div>
+                    </div>
+                    <div className="lesson__dropdown">
+                        <h3 className="lesson__dropdown--heading">Level</h3>
+                        <div className="lesson__dropdown--content">
+                            <Link><p>01: Beginner I</p></Link>
+                            <Link><p>02: Beginner II</p></Link>
+                            <Link><p>03: Intermediate I</p></Link>
+                            <Link><p>04: Intermediate II</p></Link>
+                            <Link><p>05: Advanced I</p></Link>
+                            <Link><p>06: Advanced II</p></Link>
+                        </div>
+                    </div>
                 </div>
             </div>
                 <div className="page__container--conversation">
