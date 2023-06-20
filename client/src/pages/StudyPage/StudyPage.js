@@ -72,16 +72,16 @@ const StudyPage = () => {
                     <h2 className="lesson__title">{lessonSlideArray[lessonSlide].lesson_title}</h2>
                     <p>{lessonSlideArray[lessonSlide].lesson_id}</p>
                 </div>
-                <div className="lesson__div--dropdowns">
+                {/* <div className="lesson__div--dropdowns">
                     <div className="lesson__dropdown">
                         <h3 className="lesson__dropdown--heading">Lesson</h3>
-                        <div className="lesson__dropdown--content">
+                        <div className="lesson__dropdown--content lesson__dropdown--lesson">
                             <Link><p>01: Informal Greetings</p></Link>
                         </div>
                     </div>
                     <div className="lesson__dropdown">
                         <h3 className="lesson__dropdown--heading">Level</h3>
-                        <div className="lesson__dropdown--content">
+                        <div className="lesson__dropdown--content lesson__dropdown--level">
                             <Link><p>01: Beginner I</p></Link>
                             <Link><p>02: Beginner II</p></Link>
                             <Link><p>03: Intermediate I</p></Link>
@@ -90,7 +90,7 @@ const StudyPage = () => {
                             <Link><p>06: Advanced II</p></Link>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
                 <div className="study__container--conversation">
                     <div className="lesson__container--info">

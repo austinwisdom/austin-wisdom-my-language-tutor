@@ -81,7 +81,7 @@
 
     &__dropdown {
         background-color: $yellow;
-        padding: 1rem 3rem;
+        padding: 1rem 3.5rem;
         border-radius: 8px;
         margin-left: 1rem;
 
@@ -98,6 +98,7 @@
         &--content {
                 display: none;
                 position: absolute;
+                top: 22.75rem;
                 background-color: #f1f1f1;
                 min-width: 160px;
                 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -109,6 +110,14 @@
                 text-decoration: none;
                 display: block;
             }
+        }
+
+        &--lesson {
+            right: 44rem;
+        }
+
+        &--level {
+            right: 34rem;
         }
     }
 }
