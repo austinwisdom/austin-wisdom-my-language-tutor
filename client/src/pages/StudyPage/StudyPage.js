@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import goldstars1 from "../../assets/images/stars/goldstars1.png"
 import flagUS from "../../assets/icons/flag-us.png"
 import flagES from "../../assets/icons/flag-es.png"
 import flagBR from "../../assets/icons/flag-br.png"
@@ -71,6 +72,9 @@ const StudyPage = () => {
                 <div>
                     <h2 className="lesson__title">{lessonSlideArray[lessonSlide].lesson_title}</h2>
                     <p>{lessonSlideArray[lessonSlide].lesson_id}</p>
+                </div>
+                <div>
+                    <img className="lesson__img--stars" src={goldstars1} />
                 </div>
                 {/* <div className="lesson__div--dropdowns">
                     <div className="lesson__dropdown">

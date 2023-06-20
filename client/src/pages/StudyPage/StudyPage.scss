@@ -120,6 +120,16 @@
             right: 34rem;
         }
     }
+
+    &__img {
+
+        &--stars {
+            height: 6rem;
+            // border: 1px solid $light-stone;
+            // border-radius: 8px;
+            // padding: 0rem 1rem;
+        }
+    }
 }
 
 .words {
