@@ -1,6 +1,37 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+.study {
+    &__container {
+
+        display: flex;
+        flex-direction: row;
+
+        &--tutor {
+            border: 5px solid $yellow;
+            border-radius: 8px;
+    
+            width: 60%;
+            margin-left: 5%;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            height: 31rem;
+        }
+
+        &--conversation {
+            height: 18rem;
+            border: 1px solid $light-stone;
+            margin: 0rem 1rem 1rem 1rem;
+            border-radius: 8px;
+            overflow: scroll;
+        }
+    }
+
+    &__heading {
+        margin-left: 1rem;
+    }
+}
+
 .lesson {
 
     &__buttons {
@@ -18,8 +49,16 @@
     &__container {
 
         &--info {
-            margin-left: .5rem;
-            margin-top: 1rem;
+            margin: 1rem;
+        }
+
+        &--heading {
+            font-size: 1.5rem;
+        }
+
+        &--body {
+            font-size: 1.25rem;
+            line-height: 1.5rem;
         }
     }
 
@@ -32,7 +71,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 1rem 3rem;
+        margin: 1rem 3rem 0rem 3rem;
+        height: 7rem;
 
         &--dropdowns {
             display: flex;
@@ -75,22 +115,18 @@
 
 .words {
 
-    &__article {
-
-    }
-
     &__container {
         border-radius: 8px;
-        border: 1px solid $black;
-        background-color: $yellow;
-        max-height: 29rem;
+        border: 5px solid $yellow;
+        background-color: $white;
+        height: 25rem;
         overflow: scroll;
 
         &--section {
             border-radius: 8px;
             width: 25%;
             margin-left: 5%;
-            margin-bottom: 2rem;
+            margin-bottom: 0;
         }
     }
 
@@ -105,7 +141,7 @@
         &--icon {
                 border: none;
                 border-radius: 30%;
-                background-color: $yellow;
+                background-color: $white;
     
                 margin: .25rem;
     
@@ -118,7 +154,7 @@
     &__word {
         display: flex;
         padding-left: .5rem;
-        border-bottom: 1px solid $black;
+        border-bottom: 1px solid $light-stone;
 
         &--div {
             margin-left: .5rem;
@@ -131,8 +167,9 @@
         margin-bottom: .25rem;
     }
     &__p {
-        color: $white;
+        color: $yellow;
         font-size: 1.25rem;
+        font-weight: 700;
         margin-top: .35rem;
     }
 }

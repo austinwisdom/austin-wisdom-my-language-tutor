@@ -9,7 +9,7 @@ import flagJP from "../../assets/icons/flag-jp.png"
 import flagFR from "../../assets/icons/flag-fr.png"
 
 
-import speakerIcon from "../../assets/icons/speaker-black-yellow.png"
+import speakerIcon from "../../assets/icons/speaker-black.png"
 
 import "./StudyPage.scss"
 
@@ -22,11 +22,15 @@ const StudyPage = () => {
             {
                 id: 0,
                 lesson_title: "What's up?",
+                lesson_id: "Advanced I: Lesson 01",
                 info_title: "Informal Greetings",
-                info: "\"What's up?\" is one of the most common ways that Americans greet each other. "
+                info: "\"What's up?\" is one of the most common ways that Americans greet each other. It is considered informal, but you can still hear it in some professional environments.",
+                info_title2: ""
             },
             {
                 id: 1,
+                lesson_title: "What's up?",
+                lesson_id: "Advanced I: Lesson 01",
                 info: "This is the second slide"
             }
         ]
@@ -61,12 +65,12 @@ const StudyPage = () => {
     }
 
     return (
-        <main className="page__container">
-            <section className="page__container--tutor">
+        <main className="study__container">
+            <section className="study__container--tutor">
             <div className="lesson__div">
                 <div>
                     <h2 className="lesson__title">{lessonSlideArray[lessonSlide].lesson_title}</h2>
-                    <p>Advanced I: Lesson: 01</p>
+                    <p>{lessonSlideArray[lessonSlide].lesson_id}</p>
                 </div>
                 <div className="lesson__div--dropdowns">
                     <div className="lesson__dropdown">
@@ -88,25 +92,16 @@ const StudyPage = () => {
                     </div>
                 </div>
             </div>
-                <div className="page__container--conversation">
+                <div className="study__container--conversation">
                     <div className="lesson__container--info">
-                        <h3>{lessonSlideArray[lessonSlide].info_title}</h3>
-                        <p>{lessonSlideArray[lessonSlide].info}</p>
+                        <h3 className="lesson__container--heading">{lessonSlideArray[lessonSlide].info_title}</h3>
+                        <p className="lesson__container--body">{lessonSlideArray[lessonSlide].info}</p>
                     </div>
                 </div>
-                <form className="form" onSubmit={onSubmit}>
-                    {/* <label id="userInput"></label>
-                    <textarea 
-                        className="form__textarea"
-                        name="userInput"
-                        id="userInput"
-                    >
-                    </textarea> */}
                     <div className="lesson__buttons--div">
                         <button className="lesson__buttons--navigate" onClick={goBack}>BACK</button>
                         <button className="lesson__buttons--navigate" onClick={goForward}>NEXT</button>
                     </div>
-                </form>
             </section>
 
             <section className="words__container--section">
