@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import headerImage from "../../assets/images/half-header.png";
 import profilePic from "../../assets/images/austin-profile-pic.png";
@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className="header__container">
       <div>
-        <img className="header__image" src={headerImage} />
+        <Link to={"/"}><button className="header__button--home"><img className="header__image" src={headerImage} /></button></Link>
       </div>
       <nav className="header__nav">
         <ul className="header__ul">

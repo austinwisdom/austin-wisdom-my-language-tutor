@@ -11,7 +11,7 @@
     }
 
     &__image {
-        width: 60%;
+        width: 100%;
     }
 
     &__nav {
@@ -66,6 +66,12 @@
                 background-color: $dark-yellow;
                 transform: scale(1.2);
             }
+        }
+
+        &--home {
+            background-color: $white;
+            border: none;
+            width: 60%;
         }
     }
 

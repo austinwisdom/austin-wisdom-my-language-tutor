@@ -43,6 +43,27 @@
         &--navigate {
             @include cta-primary;
             margin-left: 1rem;
+
+            background-color: $yellow;
+            border: none;
+            color: $white;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        &--practice {
+            @include cta-primary;
+            margin-top: 1rem;
+            background-color: $yellow;
+            border: none;
+            color: $white;
+            font-size: 1rem;
+            font-weight: 700;
+
+            @include tablet {
+                width: 60%;
+                margin: 1rem 20%;
+            }
         }
     }
     
@@ -79,60 +100,21 @@
         }
     }
 
-    &__dropdown {
-        background-color: $yellow;
-        padding: 1rem 3.5rem;
-        border-radius: 8px;
-        margin-left: 1rem;
-
-        &:hover {
-            .lesson__dropdown--content {
-                display: block;
-            }
-        }
-
-        &--heading {
-            margin: 0;
-        }
-
-        &--content {
-                display: none;
-                position: absolute;
-                top: 22.75rem;
-                background-color: #f1f1f1;
-                min-width: 160px;
-                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                z-index: 1;
-
-            & > a {
-                color: black;
-                padding: 12px 16px;
-                text-decoration: none;
-                display: block;
-            }
-        }
-
-        &--lesson {
-            right: 44rem;
-        }
-
-        &--level {
-            right: 34rem;
-        }
-    }
-
     &__img {
 
         &--stars {
             height: 6rem;
-            // border: 1px solid $light-stone;
-            // border-radius: 8px;
-            // padding: 0rem 1rem;
         }
     }
 }
 
 .words {
+
+    &__article {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
     &__container {
         border-radius: 8px;

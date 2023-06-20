@@ -76,25 +76,6 @@ const StudyPage = () => {
                 <div>
                     <img className="lesson__img--stars" src={goldstars1} />
                 </div>
-                {/* <div className="lesson__div--dropdowns">
-                    <div className="lesson__dropdown">
-                        <h3 className="lesson__dropdown--heading">Lesson</h3>
-                        <div className="lesson__dropdown--content lesson__dropdown--lesson">
-                            <Link><p>01: Informal Greetings</p></Link>
-                        </div>
-                    </div>
-                    <div className="lesson__dropdown">
-                        <h3 className="lesson__dropdown--heading">Level</h3>
-                        <div className="lesson__dropdown--content lesson__dropdown--level">
-                            <Link><p>01: Beginner I</p></Link>
-                            <Link><p>02: Beginner II</p></Link>
-                            <Link><p>03: Intermediate I</p></Link>
-                            <Link><p>04: Intermediate II</p></Link>
-                            <Link><p>05: Advanced I</p></Link>
-                            <Link><p>06: Advanced II</p></Link>
-                        </div>
-                    </div>
-                </div> */}
             </div>
                 <div className="study__container--conversation">
                     <div className="lesson__container--info">
@@ -161,25 +142,9 @@ const StudyPage = () => {
                                 <p className="words__p">Até logo!</p>
                             </div>
                         </div>
-             
                     </div>
+                    <button className="lesson__buttons--practice">PRACTICE WORDS</button>
                 </article>
-
-                {/* <div>
-                    <div className="info__container--languages">
-                    <h2 className="info__heading"> My languages</h2>
-                        <div className="info__div--buttons">
-                            <Link><button onClick={onClickHandler} id="es" className="info__button--flag"><img src={flagUS} className="info__img--language" alt="language selector for "/></button></Link>
-                            <Link><button onClick={onClickHandler} id="pt" className="info__button--flag"><img src={flagBR} className="info__img--language" alt="language selector for "/></button></Link>
-                            <Link><button onClick={onClickHandler} id="es" className="info__button--flag"><img src={flagES} className="info__img--language" alt="language selector for "/></button></Link>
-                        </div>
-                        <div className="info__div--buttons">
-                            <Link><button onClick={onClickHandler} id="de" className="info__button--flag"><img src={flagDE} className="info__img--language" alt="language selector for "/></button></Link>
-                            <Link><button onClick={onClickHandler} id="jp" className="info__button--flag"><img src={flagJP} className="info__img--language" alt="language selector for "/></button></Link>
-                            <Link><button onClick={onClickHandler} id="fr" className="info__button--flag"><img src={flagFR} className="info__img--language" alt="language selector for "/></button></Link>
-                        </div>
-                    </div>
-                </div> */}
             </section>
         </main>
     );

@@ -101,7 +101,7 @@ const MyTutorPage = () => {
                 <h2 className="info__heading"> Topics</h2>
         
                 <div className="info__container--buttons">
-                    <Link to={"/my-tutor/en/0"}><button onClick={onClickHandler} id={0} className="info__button">Ordering a drink</button></Link>
+                    <Link to={"/my-tutor/en/0"}><button onClick={onClickHandler} id={0} className="info__button info__button--top">Ordering a drink</button></Link>
                     <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">Talking about hobbies</button></Link>
                     <Link to={"/my-tutor/en/2"}><button onClick={onClickHandler} id={2} className="info__button">Introducing a friend</button></Link>
                     <Link to={"/my-tutor/en/3"}><button onClick={onClickHandler} id={3} className="info__button">Asking for directions</button></Link>
