@@ -1,3 +1,5 @@
+# This project is a work in progress. Phase one will be completed by June 28th, 2023.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
