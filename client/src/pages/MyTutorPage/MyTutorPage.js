@@ -15,39 +15,22 @@ import "./MyTutorPage.scss"
 
 const MyTutorPage = () => {
 
-    //======================Selected language & prompt==========
+    //======================Selected language & prompt; render topics list==========
     const { languageParam, topicParam } = useParams()
-    const [language, setLanguage] = useState()
-    const [topic, setTopic] = useState()
-    const [aiGreeting, _setAIGreeting] = useState(
-        [
-            "Barista: What can I get started for you today?",
-            "Roko: What's your favorite thing to do in your free time?",
-            "Roko: Hey, who's your new friend?",
-            "Mr. Smith: Do you need some help? You look a little lost.",
-            "Roko: What are your plans for the weekend?",
-            "Addison: Thanks for choosing to stay at our Airbnb! How was your trip here?",
-            "Alex: If you had one week to spend $20,000, where would you go, and what would you do?"
-        ])
     const [fetchedTopics, setFetchedTopics] = useState()
 
-    //======================User input (message) & AI response==========
+    //======================User input (message) & AI response; render conversation==========
     const [message, setMessage] = useState("");
     const [response, setResponse] = useState("");
     const [userConversation, setUserConversation] = useState([]);
-    
-    let topicsArr = []
+
 
     useEffect(() => {
-        const language2 = languageParam || "en"
-        const topic2 = topicParam || 0
-
         const getTopics = async () => {
             await axios
-                .get(`${endPoint}/my-tutor/${language2}`)
+                .get(`${endPoint}/my-tutor/${languageParam || "en"}`)
                 .then((res) => {
                     setFetchedTopics(res.data.topics)
-                    console.log(`topics: ${res.data.topics[0].title}`)
                 })
                 .catch((err) => {
                     console.log("Unable to fetch topics from FE")
@@ -60,15 +43,11 @@ const MyTutorPage = () => {
     const trackConversation = (message, response) => {
         let convoArr = userConversation;
         convoArr.push(response);
-        convoArr.push(message);
+        convoArr.push(`Me: ${message}`);
         setUserConversation(convoArr);
     
         return userConversation;
       };
-
-    const onClickHandler = (e) => {
-        setTopic(e.target.id)
-    }
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -95,7 +74,13 @@ const MyTutorPage = () => {
         <main className="page__container">
             <section className="page__container--tutor">
                 <div className="page__container--conversation">
-                    <p className="conversation__phrase conversation__phrase--ai">{aiGreeting[topicParam]}</p>
+                    <p className="conversation__phrase conversation__phrase--ai">
+                        {fetchedTopics && (
+                            <>
+                                {fetchedTopics[topicParam].starting_phrase}
+                            </>
+                        )}
+                    </p>
                     {userConversation.map((phrase) => {
                         return <p key={phrase} className="conversation__phrase">{phrase}</p>
                     })}
@@ -115,15 +100,14 @@ const MyTutorPage = () => {
                 </form>
             </section>
             <section className="info__container">
-                <h2 className="info__heading"> Topics</h2>
+                <h2 className="info__heading">Topics</h2>
         
                 <div className="info__container--buttons">
                     {fetchedTopics && (
                     <>
-                        {console.log(fetchedTopics)}
                         {fetchedTopics.map(({id, title, language}) => {
                             return (
-                                <Link to={`/my-tutor/${language}/${id}`}><button onClick={onClickHandler} id={id} className="info__button">{title}</button></Link>
+                                <Link to={`/my-tutor/${language}/${id}`}><button id={id} className="info__button">{title}</button></Link>
                             )
                             
                         })}
