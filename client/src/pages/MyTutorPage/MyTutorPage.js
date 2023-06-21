@@ -16,7 +16,9 @@ import "./MyTutorPage.scss"
 const MyTutorPage = () => {
 
     //======================Selected language & prompt==========
-    let { choosenLanguage, choosenTopic } = useParams("/:language", "/:id")
+    const { choosenLanguage, choosenTopic } = useParams("/:language", "/:language/:id")
+    console.log(choosenLanguage)
+    console.log(choosenTopic)
     const [language, setLanguage] = useState()
     const [topic, setTopic] = useState()
     const [aiGreeting, _setAIGreeting] = useState(
@@ -29,6 +31,7 @@ const MyTutorPage = () => {
             "Addison: Thanks for choosing to stay at our Airbnb! How was your trip here?",
             "Alex: If you had one week to spend $20,000, where would you go, and what would you do?"
         ])
+    const [fetchedTopics, setFetchedTopics] = useState()
 
     //======================User input (message) & AI response==========
     const [message, setMessage] = useState("");
@@ -44,7 +47,8 @@ const MyTutorPage = () => {
         axios
             .get(`${endPoint}/my-tutor/${language}`)
             .then((res) => {
-                console.log(res)
+                setFetchedTopics(res.data)
+                console.log(fetchedTopics)
             })
             .catch((err) => {
                 console.log("Unable to fetch topics from FE")
