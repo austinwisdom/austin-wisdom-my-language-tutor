@@ -122,15 +122,11 @@ const MyTutorPage = () => {
                     <>
                         {console.log(fetchedTopics)}
                         {fetchedTopics.map(({id, title, language}) => {
-                            {console.log(id, title, language)}
-                            <Link to={`/my-tutor/${language}/${id}`}><button onClick={onClickHandler} id={id} className="info__button">{title}</button></Link>
+                            return (
+                                <Link to={`/my-tutor/${language}/${id}`}><button onClick={onClickHandler} id={id} className="info__button">{title}</button></Link>
+                            )
+                            
                         })}
-                        {/* <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">{fetchedTopics[0].title}</button></Link>
-                        <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">{fetchedTopics[1].title}</button></Link>
-                        <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">{fetchedTopics[2].title}</button></Link>
-                        <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">{fetchedTopics[3].title}</button></Link>
-                        <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">{fetchedTopics[4].title}</button></Link>
-                        <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">{fetchedTopics[5].title}</button></Link> */}
                     </>
                     )}
                 </div>
