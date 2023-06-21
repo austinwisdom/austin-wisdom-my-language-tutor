@@ -2,14 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import goldstars1 from "../../assets/images/stars/goldstars1.png"
-import flagUS from "../../assets/icons/flag-us.png"
-import flagES from "../../assets/icons/flag-es.png"
-import flagBR from "../../assets/icons/flag-br.png"
-import flagDE from "../../assets/icons/flag-de.png"
-import flagJP from "../../assets/icons/flag-jp.png"
-import flagFR from "../../assets/icons/flag-fr.png"
-
-
 import speakerIcon from "../../assets/icons/speaker-black.png"
 
 import "./StudyPage.scss"
@@ -37,14 +29,6 @@ const StudyPage = () => {
         ]
     )
 
-    const langArrays = [
-        {
-            lang: "en",
-            words_en: ["See you later!", "What's up?", "That's awesome!", "cool", "smart"],
-            words_pt: ["Até logo!", "Fala aí!", "Que legal!", "legal, beleza", "inteligente"]
-        }
-    ]
-
     const goBack = (e) => {
         if (lessonSlide > 0) {
             setLessonSlide(lessonSlide -1)
@@ -57,24 +41,16 @@ const StudyPage = () => {
         }
     }
 
-    const onSubmit = (e) => {
-        e.preventDefault()
-    }
-
-    const onClickHandler = (e) => {
-        console.log("Build this out")
-    }
-
     return (
         <main className="study__container">
             <section className="study__container--tutor">
             <div className="lesson__div">
-                <div>
+                <div className="lesson__info">
                     <h2 className="lesson__title">{lessonSlideArray[lessonSlide].lesson_title}</h2>
                     <p>{lessonSlideArray[lessonSlide].lesson_id}</p>
                 </div>
                 <div>
-                    <img className="lesson__img--stars" src={goldstars1} />
+                    {/* <img className="lesson__img--stars" src="" /> */}
                 </div>
             </div>
                 <div className="study__container--conversation">
@@ -91,7 +67,7 @@ const StudyPage = () => {
 
             <section className="words__container--section">
                 <article className="words__article">
-                    <h2 className="info__heading"> My words</h2>
+                    <h2 className="study__heading"> My words</h2>
                     <div className="words__container">
                         <div className="words__word">
                             <button className="words__button--icon"><img className="words__img--icon" src={speakerIcon} alt="speaker icon, click for text to speech on each phrase"/></button>

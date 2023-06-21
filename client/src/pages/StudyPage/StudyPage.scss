@@ -20,19 +20,21 @@
 
         &--conversation {
             height: 18rem;
-            border: 1px solid $light-stone;
-            margin: 0rem 1rem 1rem 1rem;
-            border-radius: 8px;
+            margin-bottom: 2rem;
             overflow: scroll;
         }
     }
 
     &__heading {
-        margin-left: 1rem;
+        text-align: center;
     }
 }
 
 .lesson {
+
+    &__info {
+        margin: 2rem;
+    }
 
     &__buttons {
 
@@ -42,7 +44,7 @@
 
         &--navigate {
             @include cta-primary;
-            margin-left: 1rem;
+            margin-left: 2rem;
 
             background-color: $yellow;
             border: none;
@@ -70,7 +72,7 @@
     &__container {
 
         &--info {
-            margin: 1rem;
+            margin: 2rem;
         }
 
         &--heading {
@@ -92,8 +94,9 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 1rem 3rem 0rem 3rem;
+        // margin: 1rem 3rem 0rem 3rem;
         height: 7rem;
+        background-color: $yellow;
 
         &--dropdowns {
             display: flex;

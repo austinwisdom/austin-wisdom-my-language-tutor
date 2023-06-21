@@ -115,10 +115,9 @@ const MyTutorPage = () => {
                 </div>
 
                 <div>
-                    {/* <h2 className="info__heading">Language</h2> */}
                     <div className="info__container--languages">
                         <div className="info__div--buttons">
-                            <Link><button id="es" className="info__button--flag"><img src={flagUS} className="info__img--language" alt="language selector for "/></button></Link>
+                            <Link><button id="en" className="info__button--flag"><img src={flagUS} className="info__img--language" alt="language selector for "/></button></Link>
                             <Link><button id="pt" className="info__button--flag"><img src={flagBR} className="info__img--language" alt="language selector for "/></button></Link>
                             <Link><button id="es" className="info__button--flag"><img src={flagES} className="info__img--language" alt="language selector for "/></button></Link>
                         </div>
