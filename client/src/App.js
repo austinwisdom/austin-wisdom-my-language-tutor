@@ -8,6 +8,7 @@ import StudyPage from './pages/StudyPage/StudyPage';
 import './App.scss';
 
 function App() {
+
   return (
 
       <BrowserRouter>
@@ -16,8 +17,8 @@ function App() {
           <Route path="/" element={<Homepage />}/>
           <Route path="/my-profile" />
           <Route path="/my-tutor" element={<MyTutorPage />}/>
-          <Route path="/my-tutor/:language" element={<MyTutorPage />}/>
-          <Route path="/my-tutor/:language/:topic" element={<MyTutorPage />} />
+          <Route path="/my-tutor/:languageParam/:topicParam" element={<MyTutorPage />} />
+          <Route path="/my-tutor/:languageParam" element={<MyTutorPage />}/>
           <Route path="/study" element={<StudyPage />} />
           <Route path="/community" />
         </Routes>

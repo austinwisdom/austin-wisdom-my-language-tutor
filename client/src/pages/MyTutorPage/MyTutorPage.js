@@ -16,9 +16,7 @@ import "./MyTutorPage.scss"
 const MyTutorPage = () => {
 
     //======================Selected language & prompt==========
-    const { choosenLanguage, choosenTopic } = useParams("/:language", "/:language/:id")
-    console.log(choosenLanguage)
-    console.log(choosenTopic)
+    const { languageParam, topicParam } = useParams()
     const [language, setLanguage] = useState()
     const [topic, setTopic] = useState()
     const [aiGreeting, _setAIGreeting] = useState(
@@ -37,22 +35,26 @@ const MyTutorPage = () => {
     const [message, setMessage] = useState("");
     const [response, setResponse] = useState("");
     const [userConversation, setUserConversation] = useState([]);
-
+    
+    let topicsArr = []
 
     useEffect(() => {
-        choosenLanguage ? setLanguage(choosenLanguage) : setLanguage("en")
-        console.log(language)
-        choosenTopic ? setTopic(choosenTopic) : setTopic(0)
+        const language2 = languageParam || "en"
+        const topic2 = topicParam || 0
 
-        axios
-            .get(`${endPoint}/my-tutor/${language}`)
-            .then((res) => {
-                setFetchedTopics(res.data)
-                console.log(fetchedTopics)
-            })
-            .catch((err) => {
-                console.log("Unable to fetch topics from FE")
-            })
+        const getTopics = async () => {
+            await axios
+                .get(`${endPoint}/my-tutor/${language2}`)
+                .then((res) => {
+                    setFetchedTopics(res.data.topics)
+                    console.log(`topics: ${res.data.topics[0].title}`)
+                })
+                .catch((err) => {
+                    console.log("Unable to fetch topics from FE")
+                })
+        }
+        getTopics()
+        
     }, [])
 
     const trackConversation = (message, response) => {
@@ -71,7 +73,7 @@ const MyTutorPage = () => {
     const onSubmit = (e) => {
         e.preventDefault()
 
-        fetch(`${endPoint}/my-tutor/${language}/${topic}`, {
+        fetch(`${endPoint}/my-tutor/${languageParam}/${topicParam}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -88,11 +90,12 @@ const MyTutorPage = () => {
             })
 
     }
+
     return (
         <main className="page__container">
             <section className="page__container--tutor">
                 <div className="page__container--conversation">
-                    <p className="conversation__phrase conversation__phrase--ai">{aiGreeting[topic]}</p>
+                    <p className="conversation__phrase conversation__phrase--ai">{aiGreeting[topicParam]}</p>
                     {userConversation.map((phrase) => {
                         return <p key={phrase} className="conversation__phrase">{phrase}</p>
                     })}
@@ -115,13 +118,21 @@ const MyTutorPage = () => {
                 <h2 className="info__heading"> Topics</h2>
         
                 <div className="info__container--buttons">
-                    <Link to={"/my-tutor/en/0"}><button onClick={onClickHandler} id={0} className="info__button info__button--top">Ordering a drink</button></Link>
-                    <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">Talking about hobbies</button></Link>
-                    <Link to={"/my-tutor/en/2"}><button onClick={onClickHandler} id={2} className="info__button">Introducing a friend</button></Link>
-                    <Link to={"/my-tutor/en/3"}><button onClick={onClickHandler} id={3} className="info__button">Asking for directions</button></Link>
-                    <Link to={"/my-tutor/en/4"}><button onClick={onClickHandler} id={4} className="info__button">Talking about the weekend</button></Link>
-                    <Link to={"/my-tutor/en/5"}><button onClick={onClickHandler} id={5} className="info__button">Checking into an Airbnb</button></Link>
-                    <Link to={"/my-tutor/en/6"}><button onClick={onClickHandler} id={6} className="info__button">Dream vacation</button></Link>
+                    {fetchedTopics && (
+                    <>
+                        {console.log(fetchedTopics)}
+                        {fetchedTopics.map(({id, title, language}) => {
+                            {console.log(id, title, language)}
+                            <Link to={`/my-tutor/${language}/${id}`}><button onClick={onClickHandler} id={id} className="info__button">{title}</button></Link>
+                        })}
+                        {/* <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">{fetchedTopics[0].title}</button></Link>
+                        <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">{fetchedTopics[1].title}</button></Link>
+                        <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">{fetchedTopics[2].title}</button></Link>
+                        <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">{fetchedTopics[3].title}</button></Link>
+                        <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">{fetchedTopics[4].title}</button></Link>
+                        <Link to={"/my-tutor/en/1"}><button onClick={onClickHandler} id={1} className="info__button">{fetchedTopics[5].title}</button></Link> */}
+                    </>
+                    )}
                 </div>
 
                 <div>
