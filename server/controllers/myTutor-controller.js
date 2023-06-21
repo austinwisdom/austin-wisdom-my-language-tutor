@@ -27,7 +27,7 @@ const getOpenAIResponse = async (req, res) => {
 
     //get help finding out why the obj is here but
     //the properties are undefined
-    const prompt = await knex("conversations_en")
+    const prompt = await knex("prompts")
         .select()
         .where({"id": topicToSend})
         .then((result) => {
