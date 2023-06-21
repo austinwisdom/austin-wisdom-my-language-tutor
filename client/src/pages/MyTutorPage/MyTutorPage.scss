@@ -22,8 +22,7 @@
         &--conversation {
             height: 18rem;
             border: 1px solid $light-stone;
-            margin: 1rem;
-            border-radius: 8px;
+            border-radius: 4px;
             overflow: scroll;
         }
     }
@@ -113,9 +112,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    height: 15rem;
-
-    margin-right: 1rem;
+    background-color: $yellow;
+    padding: 1rem;
 
     &__textarea {
         width: 60%;
@@ -134,9 +132,9 @@
 
         &--submit {
             @include cta-primary;
-            background-color: $yellow;
-            border: none;
-            color: $white;
+            background-color: $white;
+            border: 1px solid $black;
+            color: $black;
             font-size: 1rem;
             font-weight: 700;
 
@@ -145,6 +143,7 @@
                 
                 &:hover {
                     transform: scale(1.1);
+                    background-color: $white;
                 }
             }
 
@@ -159,10 +158,11 @@
         line-height: 2.25rem;
         font-size: 1.5rem;
         max-width: 60%;
+        margin-right: 1rem;
+        margin-left: 1rem;
 
         &--ai {
             text-align: left;
-            margin-left: 1rem;
             margin-right: 40%;
         }
 

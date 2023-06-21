@@ -24,7 +24,6 @@ const MyTutorPage = () => {
     const [response, setResponse] = useState("");
     const [userConversation, setUserConversation] = useState([]);
 
-
     useEffect(() => {
         const getTopics = async () => {
             await axios
@@ -75,7 +74,7 @@ const MyTutorPage = () => {
             <section className="page__container--tutor">
                 <div className="page__container--conversation">
                     <p className="conversation__phrase conversation__phrase--ai">
-                        {fetchedTopics && (
+                        {fetchedTopics && topicParam && (
                             <>
                                 {fetchedTopics[topicParam].starting_phrase}
                             </>
@@ -107,7 +106,7 @@ const MyTutorPage = () => {
                     <>
                         {fetchedTopics.map(({id, title, language}) => {
                             return (
-                                <Link to={`/my-tutor/${language}/${id}`}><button id={id} className="info__button">{title}</button></Link>
+                                <Link key={id} to={`/my-tutor/${language}/${id}`}><button id={id} className="info__button">{title}</button></Link>
                             )
                             
                         })}
