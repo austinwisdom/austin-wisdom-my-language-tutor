@@ -25,8 +25,6 @@ const getOpenAIResponse = async (req, res) => {
     let languageToSend = req.params.language
     let topicToSend = req.params.topic
 
-    //get help finding out why the obj is here but
-    //the properties are undefined
     const prompt = await knex("prompts")
         .select()
         .where({"id": topicToSend})
@@ -34,12 +32,10 @@ const getOpenAIResponse = async (req, res) => {
             return result[0].prompt
         })
 
-    console.log(prompt)
-
     const response = await openai.createCompletion(
         { 
         model: "text-davinci-003", 
-        prompt: `${prompt} ${message}`, 
+        prompt: `${prompt} Me: ${message}`, 
         temperature: 1, 
         max_tokens: 256, 
         top_p: 1, 

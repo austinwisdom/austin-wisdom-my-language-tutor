@@ -26,7 +26,7 @@ const MyTutorPage = () => {
             "Roko: Hey, who's your new friend?",
             "Mr. Smith: Do you need some help? You look a little lost.",
             "Roko: What are your plans for the weekend?",
-            "Addison: Thanks for choosing to stay at our Airbnb! How long will you be staying?",
+            "Addison: Thanks for choosing to stay at our Airbnb! How was your trip here?",
             "Alex: If you had one week to spend $20,000, where would you go, and what would you do?"
         ])
 
