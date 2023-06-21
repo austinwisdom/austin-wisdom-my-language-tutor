@@ -31,15 +31,15 @@ const getOpenAIResponse = async (req, res) => {
         .select()
         .where({"id": topicToSend})
         .then((result) => {
-            console.log(result[0].prompt)
-            console.log(result[0].prompt.model)
             return result[0].prompt
         })
+
+    console.log(prompt)
 
     const response = await openai.createCompletion(
         { 
         model: "text-davinci-003", 
-        prompt: `Pretend you're a barista at a coffee shop, you're helping Me to complete their order. Ask them what they want to drink. Then after they respond, ask if they want anything to eat. Then after they respond, tell them the total price of their order. Then ask them how they would like to pay. Then ask them \"can I get a name for the order?\". Then thank them for ordering and tell them goodbye..\n\nBarista: Hi there, how can I help you today? Me: ${message}`, 
+        prompt: `${prompt} ${message}`, 
         temperature: 1, 
         max_tokens: 256, 
         top_p: 1, 
