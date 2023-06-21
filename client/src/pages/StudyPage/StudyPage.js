@@ -119,7 +119,7 @@ const StudyPage = () => {
                             </div>
                         </div>
                     </div>
-                    <button className="lesson__buttons--practice">PRACTICE WORDS</button>
+                    <Link to={"/study/practice-words"}><button className="lesson__buttons--practice">PRACTICE WORDS</button></Link>
                 </article>
             </section>
         </main>
