@@ -16,7 +16,7 @@ import "./MyTutorPage.scss"
 const MyTutorPage = () => {
 
     //======================Selected language & prompt==========
-    let { choosenLanguage, choosenTopic } = useParams()
+    let { choosenLanguage, choosenTopic } = useParams("/:language", "/:id")
     const [language, setLanguage] = useState()
     const [topic, setTopic] = useState()
     const [aiGreeting, _setAIGreeting] = useState(
@@ -38,7 +38,17 @@ const MyTutorPage = () => {
 
     useEffect(() => {
         choosenLanguage ? setLanguage(choosenLanguage) : setLanguage("en")
+        console.log(language)
         choosenTopic ? setTopic(choosenTopic) : setTopic(0)
+
+        axios
+            .get(`${endPoint}/my-tutor/${language}`)
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log("Unable to fetch topics from FE")
+            })
     }, [])
 
     const trackConversation = (message, response) => {

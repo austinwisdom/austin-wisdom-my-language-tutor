@@ -54,7 +54,25 @@ const getOpenAIResponse = async (req, res) => {
     
 }
 
+const getTopics = async (req, res) => {
+
+    let languageToSend = req.params.language
+    const topics = await knex("prompts")
+        .select()
+        .where({"language": languageToSend})
+        .then((result) => {
+            return result
+        });
+
+    if (topics) {
+        res.status(200).json({topics})
+    } else {
+        res.status(404).json("Topics in that language not found")
+    }
+}
+
 module.exports = {
     myTutor,
-    getOpenAIResponse
+    getOpenAIResponse,
+    getTopics
 }
