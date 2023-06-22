@@ -4,6 +4,22 @@
 .home {
 
     &__container {
+        display: flex;
+        justify-content: space-between;
         height: 25rem;
+        border: 5px solid $yellow;
+        margin-top: 2rem;
+        margin-left: 5%;
+        border-radius: 8px;
+        width: 60%;
+    }
+
+    &__stats {
+        width: 40%;
+
+        &--challenges {
+            display: flex;
+            flex-direction: column;
+        }
     }
 }

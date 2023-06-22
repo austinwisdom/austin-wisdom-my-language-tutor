@@ -4,10 +4,15 @@
     
     var sdk = require("microsoft-cognitiveservices-speech-sdk");
     var readline = require("readline");
+    require("dotenv").config()
+    const { SPEECH_KEY, SPEECH_REGION } = process.env
+    console.log(process.env)
 
     var audioFile = "YourAudioFile.wav";
     // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
-    const speechConfig = sdk.SpeechConfig.fromSubscription(process.env.SPEECH_KEY, process.env.SPEECH_REGION);
+    
+    console.log(SPEECH_KEY)
+    const speechConfig = sdk.SpeechConfig.fromSubscription(SPEECH_KEY, SPEECH_REGION);
     const audioConfig = sdk.AudioConfig.fromAudioFileOutput(audioFile);
 
     // The language of the voice that speaks.
