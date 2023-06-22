@@ -16,6 +16,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
+
 const myTutor = (_req, res) => {
     res.status(200).json("This is my Tutor")
 }

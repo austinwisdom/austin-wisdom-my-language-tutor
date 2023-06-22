@@ -1,4 +1,5 @@
-(function() {
+const synthesizeSpeech = () => {
+  {
 
     "use strict";
     
@@ -6,12 +7,10 @@
     var readline = require("readline");
     require("dotenv").config()
     const { SPEECH_KEY, SPEECH_REGION } = process.env
-    console.log(process.env)
 
     var audioFile = "YourAudioFile.wav";
     // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
     
-    console.log(SPEECH_KEY)
     const speechConfig = sdk.SpeechConfig.fromSubscription(SPEECH_KEY, SPEECH_REGION);
     const audioConfig = sdk.AudioConfig.fromAudioFileOutput(audioFile);
 
@@ -47,4 +46,8 @@
       });
       console.log("Now synthesizing to: " + audioFile);
     });
-}());
+}};
+
+module.exports = {
+  synthesizeSpeech
+}
