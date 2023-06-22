@@ -1,5 +1,4 @@
-const synthesizeSpeech = () => {
-  {
+const synthesizeSpeech = (text) => {
 
     "use strict";
     
@@ -46,7 +45,7 @@ const synthesizeSpeech = () => {
       });
       console.log("Now synthesizing to: " + audioFile);
     });
-}};
+};
 
 module.exports = {
   synthesizeSpeech
