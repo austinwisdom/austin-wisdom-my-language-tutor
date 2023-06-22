@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Homepage from './pages/Homepage/Homepage';
 import MyTutorPage from './pages/MyTutorPage/MyTutorPage';
@@ -24,6 +24,8 @@ function App() {
           <Route path="/study" element={<StudyPage />} />
           <Route path="/study/practice-words" element={<PracticeWordsPage />} />
           <Route path="/community" />
+          <Route path="*" element={<Navigate to="/" replace />} />
+
         </Routes>
         <Footer />
       </BrowserRouter>
