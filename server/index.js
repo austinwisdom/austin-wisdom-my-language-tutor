@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
 
+const multer = require("multer")
+const getFormData = multer()
+
 const OpenAI = require('openai')
 const { Configuration, OpenAIApi } = OpenAI
 
@@ -8,9 +11,12 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 require("dotenv").config()
 
+app.use(getFormData.single())
 app.use(bodyParser.json())
 app.use(cors())
+app.use("/", express.static('/'))
 app.use(express.static('server'))
+app.use(express.static('audio'))
 
 const homePageRoutes = require("./routes/homePage.js")
 const myProfileRoutes = require("./routes/myProfile")

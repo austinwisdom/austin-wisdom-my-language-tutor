@@ -1,8 +1,13 @@
 const fs = require("fs")
 const path = require("path")
 const FormData = require("form-data")
+const { Readable } = require('stream')
+const multer = require('multer')
 const axios = require("axios")
+
+const upload = multer()
 require("dotenv").config()
+
 const OpenAI = require('openai')
 const { Configuration, OpenAIApi } = OpenAI
 
@@ -17,7 +22,13 @@ const openai = new OpenAIApi(configuration);
 
 const getSpeechToText = async (req, res) => {
 
-    const filePath = path.join(__dirname, "1687524393362.wav")
+    const  bufferToStream  = (buffer) => {
+        return  Readable.from(buffer);
+      }
+
+    console.log(req.body)
+    const fileToSend = req.body.url
+    const filePath = path.join(fileToSend)
     const model = "whisper-1"
 
     const formData = new FormData()
