@@ -18,6 +18,7 @@ const MyTutorPage = () => {
     //======================Selected language & prompt; render topics list==========
     const { languageParam, topicParam } = useParams()
     const [fetchedTopics, setFetchedTopics] = useState()
+    const [ startingPhrase, setStartingPhrase ] = useState()
 
     //======================User input (message) & AI response; render conversation==========
     const [message, setMessage] = useState("");
@@ -30,6 +31,7 @@ const MyTutorPage = () => {
                 .get(`${endPoint}/my-tutor/${languageParam || "en"}`)
                 .then((res) => {
                     setFetchedTopics(res.data.topics)
+                    console.log(res.data.topics)
                 })
                 .catch((err) => {
                     console.log("Unable to fetch topics from FE")
@@ -37,7 +39,15 @@ const MyTutorPage = () => {
         }
         getTopics()
         
-    }, [])
+    }, [languageParam])
+
+    const getStartingPhrase = (e) => {
+        let startingId = parseInt(e.target.id)
+        const found = fetchedTopics.find(obj => {
+            return obj.id === startingId 
+        })
+        setStartingPhrase(found.starting_phrase)
+    }
 
     const trackConversation = (message, response) => {
         let convoArr = userConversation;
@@ -77,9 +87,10 @@ const MyTutorPage = () => {
                     <p className="conversation__phrase conversation__phrase--ai">
                         {fetchedTopics && topicParam && (
                             <>
-                                {fetchedTopics[topicParam].starting_phrase}
+                                {startingPhrase}
                             </>
                         )}
+                        
                     </p>
                     {userConversation.map((phrase) => {
                         return <p key={phrase} className="conversation__phrase">{phrase}</p>
@@ -107,7 +118,7 @@ const MyTutorPage = () => {
                     <>
                         {fetchedTopics.map(({id, title, language}) => {
                             return (
-                                <Link key={id} to={`/my-tutor/${language}/${id}`}><button id={id} className="info__button">{title}</button></Link>
+                                <Link onClick={getStartingPhrase} key={id} to={`/my-tutor/${language}/${id}`}><button id={id} className="info__button">{title}</button></Link>
                             )
                             
                         })}
@@ -118,14 +129,14 @@ const MyTutorPage = () => {
                 <div>
                     <div className="info__container--languages">
                         <div className="info__div--buttons">
-                            <Link to={`/my-tutor/en`} ><button id="en" className="info__button--flag"><img src={flagUS} className="info__img--language" alt="language selector for "/></button></Link>
-                            <Link><button id="pt" className="info__button--flag"><img src={flagBR} className="info__img--language" alt="language selector for "/></button></Link>
-                            <Link><button id="es" className="info__button--flag"><img src={flagES} className="info__img--language" alt="language selector for "/></button></Link>
+                            <Link to={`/my-tutor/en`}><button id="en" className="info__button--flag"><img src={flagUS} className="info__img--language" alt="language selector for "/></button></Link>
+                            <Link to={`/my-tutor/pt`}><button id="pt" className="info__button--flag"><img src={flagBR} className="info__img--language" alt="language selector for "/></button></Link>
+                            <Link to={`/my-tutor/es`}><button id="es" className="info__button--flag"><img src={flagES} className="info__img--language" alt="language selector for "/></button></Link>
                         </div>
                         <div className="info__div--buttons">
-                            <Link><button id="de" className="info__button--flag"><img src={flagDE} className="info__img--language" alt="language selector for "/></button></Link>
-                            <Link><button id="jp" className="info__button--flag"><img src={flagJP} className="info__img--language" alt="language selector for "/></button></Link>
-                            <Link><button id="fr" className="info__button--flag"><img src={flagFR} className="info__img--language" alt="language selector for "/></button></Link>
+                            <Link to={`/my-tutor/de`}><button id="de" className="info__button--flag"><img src={flagDE} className="info__img--language" alt="language selector for "/></button></Link>
+                            <Link to={`/my-tutor/jp`}><button id="jp" className="info__button--flag"><img src={flagJP} className="info__img--language" alt="language selector for "/></button></Link>
+                            <Link to={`/my-tutor/fr`}><button id="fr" className="info__button--flag"><img src={flagFR} className="info__img--language" alt="language selector for "/></button></Link>
                         </div>
                     </div>
                 </div>
