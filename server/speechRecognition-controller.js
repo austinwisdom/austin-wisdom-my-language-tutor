@@ -15,7 +15,8 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const getSpeechToText = () => {
+const getSpeechToText = async (req, res) => {
+
     const filePath = path.join(__dirname, "1687524393362.wav")
     const model = "whisper-1"
 
@@ -23,19 +24,35 @@ const getSpeechToText = () => {
     formData.append("model", model)
     formData.append("file", fs.createReadStream(filePath))
 
-    axios
-        .post("https://api.openai.com/v1/audio/transcriptions", formData, {
-            headers: {
-                Authorization: `Bearer ${OPENAI_API_KEY}`,
-                "Content-Type": `multipart/form-data; boundary=${formData._boundary}`
-            }
+    const getText = () => {
+        return new Promise((resolve, reject) => {
+            axios
+                .post("https://api.openai.com/v1/audio/transcriptions", formData, {
+                    headers: {
+                        Authorization: `Bearer ${OPENAI_API_KEY}`,
+                        "Content-Type": `multipart/form-data; boundary=${formData._boundary}`
+                    }
+                })
+                .then((res) => {
+                    console.log(res.data)
+                    resolve(res.data)
+                })
+                .catch((err) => {
+                    console.log(`${err}: Couldn't reach openAI whisper`)
+                })
         })
-        .then((res) => {
-            console.log(res.data)
-        })
-        .catch((err) => {
-            console.log(`${err}: Couldn't reach openAI whisper`)
-        })
+    }
+
+    const transcribedText = await getText()
+
+    if (transcribedText) {
+        res.status(200).json(`here it is: ${transcribedText}`)
+    } else {
+        res.json("Couldn't retrieve transcription")
+    }
+        
 }
 
-getSpeechToText()
+module.exports = {
+    getSpeechToText
+}
