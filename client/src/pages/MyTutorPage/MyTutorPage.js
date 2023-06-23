@@ -4,6 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { endPoint} from "../../utilities/endpoints"
 
+import AudioRecorder from "../../components/AudioRecorder/AudioRecorder";
+
 import flagUS from "../../assets/icons/flag-us.png"
 import flagES from "../../assets/icons/flag-es.png"
 import flagBR from "../../assets/icons/flag-br.png"
@@ -107,7 +109,10 @@ const MyTutorPage = () => {
                         onChange={(e) => setMessage(e.target.value)}
                     >
                     </textarea>
-                    <button className="form__button--submit">SEND</button>
+                    <div className="form__button--div">
+                        <AudioRecorder />
+                        <button className="form__button--submit">SEND</button>
+                    </div>
                 </form>
             </section>
             <section className="info__container">
@@ -117,10 +122,7 @@ const MyTutorPage = () => {
                     {fetchedTopics && (
                     <>
                         {fetchedTopics.map(({id, title, language}) => {
-                            return (
-                                <Link onClick={getStartingPhrase} key={id} to={`/my-tutor/${language}/${id}`}><button id={id} className="info__button">{title}</button></Link>
-                            )
-                            
+                            return (<Link onClick={getStartingPhrase} key={id} to={`/my-tutor/${language}/${id}`}><button id={id} className="info__button">{title}</button></Link>)
                         })}
                     </>
                     )}

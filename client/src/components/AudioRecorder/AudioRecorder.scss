@@ -1,0 +1,13 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.recorder {
+
+    &__button {
+        @include cta-primary;
+
+        &:hover {
+            background-color: $white;
+        }
+    }
+}

@@ -130,6 +130,11 @@
 
     &__button {
 
+        &--div {
+            display: flex;
+            width: 30rem;
+        }
+
         &--submit {
             @include cta-primary;
             background-color: $white;
@@ -139,10 +144,9 @@
             font-weight: 700;
 
             @include tablet {
-                width: 15%;
+                width: 35%;
                 
                 &:hover {
-                    transform: scale(1.1);
                     background-color: $white;
                 }
             }
