@@ -10,7 +10,7 @@ require("dotenv").config()
 
 app.use(bodyParser.json())
 app.use(cors())
-// app.use(express.static('server'))
+app.use(express.static('server'))
 
 const homePageRoutes = require("./routes/homePage.js")
 const myProfileRoutes = require("./routes/myProfile")
