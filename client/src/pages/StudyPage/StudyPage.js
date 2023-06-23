@@ -1,8 +1,11 @@
-import { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
+import {Howl, Howler} from 'howler';
+import { useEffect, useState } from "react";
 
-import goldstars1 from "../../assets/images/stars/goldstars1.png"
+import { endPoint} from "../../utilities/endpoints"
 import speakerIcon from "../../assets/icons/speaker-black.png"
+import audioFile from "../../1687460044850.wav"
 
 import "./StudyPage.scss"
 
@@ -29,6 +32,8 @@ const StudyPage = () => {
         ]
     )
 
+    const [ audio, setAudio ] = useState("")
+
     const goBack = (e) => {
         if (lessonSlide > 0) {
             setLessonSlide(lessonSlide -1)
@@ -41,6 +46,32 @@ const StudyPage = () => {
         }
     }
 
+    const clickHandler = async (e) => {
+
+        // const sound = new Howl({
+        //     src: [audioFile]
+        // })
+    
+        // sound.play()
+
+        axios
+            .post(`${endPoint}/study`, {
+                textToSynthesize: "See you later!"
+              })
+            .then((result) => {
+                let audio = new Howl({
+                    src: [`${endPoint}/${result.data}`],
+                    autoplay: true
+                })
+                console.log(audio)
+                setAudio(audio)
+                audio.play()
+            })
+            .catch((err) => {
+                console.log("Could not fetch study endpoint")
+            })
+    }
+
     return (
         <main className="study__container">
             <section className="study__container--tutor">
@@ -48,9 +79,6 @@ const StudyPage = () => {
                 <div className="lesson__info">
                     <h2 className="lesson__title">{lessonSlideArray[lessonSlide].lesson_title}</h2>
                     <p>{lessonSlideArray[lessonSlide].lesson_id}</p>
-                </div>
-                <div>
-                    {/* <img className="lesson__img--stars" src="" /> */}
                 </div>
             </div>
                 <div className="study__container--conversation">
@@ -70,10 +98,15 @@ const StudyPage = () => {
                     <h2 className="study__heading"> My words</h2>
                     <div className="words__container">
                         <div className="words__word">
-                            <button className="words__button--icon"><img className="words__img--icon" src={speakerIcon} alt="speaker icon, click for text to speech on each phrase"/></button>
+                            <button className="words__button--icon" onClick={clickHandler}><img className="words__img--icon" src={speakerIcon} alt="speaker icon, click for text to speech on each phrase"/>
+                                <audio>
+                                    <source src={audio}></source>
+                                </audio>
+                            </button>
                             <div className="words__word--div">
                                 <h3 className="words__subheading">See you later!</h3>
                                 <p className="words__p">Até logo!</p>
+
                             </div>
                         </div>
                         <div className="words__word">
@@ -119,7 +152,7 @@ const StudyPage = () => {
                             </div>
                         </div>
                     </div>
-                    <Link to={"/study/practice-words"}><button className="lesson__buttons--practice">PRACTICE WORDS</button></Link>
+                    <Link className="lesson__buttons--link" to={"/study/practice-words"}><button className="lesson__buttons--practice">PRACTICE WORDS</button></Link>
                 </article>
             </section>
         </main>
