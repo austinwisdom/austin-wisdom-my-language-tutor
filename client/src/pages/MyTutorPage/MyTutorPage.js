@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import { Howl, Howler } from "howler";
 
 import { useState, useEffect } from "react";
 import { endPoint} from "../../utilities/endpoints"
@@ -27,6 +28,10 @@ const MyTutorPage = () => {
     const [response, setResponse] = useState("");
     const [userConversation, setUserConversation] = useState([]);
 
+    //======================Set audio for TTS======================
+    const [audio, setAudio] = useState("");
+
+
     useEffect(() => {
         const getTopics = async () => {
             await axios
@@ -53,8 +58,10 @@ const MyTutorPage = () => {
 
     const trackConversation = (message, response) => {
         let convoArr = userConversation;
-        convoArr.push(response);
-        convoArr.push(`Me: ${message}`);
+        
+        convoArr.push(<p key={response} className="conversation__phrase">{response}</p>)
+        convoArr.push(<p key={message} className="conversation__phrase">{`Me: ${message}`}</p>)
+        // convoArr.push(`Me: ${message}`);
         setUserConversation(convoArr);
     
         return userConversation;
@@ -79,8 +86,29 @@ const MyTutorPage = () => {
                 console.log("Unable to send user response")
             })
         setMessage("")
-
     }
+
+    const clickHandler = async (e) => {
+        const textToSend = e.target.id;
+        console.log(textToSend);
+        //need to pass in text and language (to change voice)
+        axios
+          .post(`${endPoint}/study`, {
+            textToSynthesize: `${textToSend}`,
+          })
+          .then((result) => {
+            console.log(result);
+            let audio = new Howl({
+              src: [`${endPoint}/${result.data}`],
+              autoplay: true,
+            });
+            setAudio(audio);
+            audio.play();
+          })
+          .catch((err) => {
+            console.log("Could not fetch study endpoint");
+          });
+      };
 
     return (
         <main className="page__container">
@@ -95,7 +123,7 @@ const MyTutorPage = () => {
                         
                     </p>
                     {userConversation.map((phrase) => {
-                        return <p key={phrase} className="conversation__phrase">{phrase}</p>
+                        return <>{phrase}</>
                     })}
                     <p className="conversation__phrase">{response}</p>
                 </div>
