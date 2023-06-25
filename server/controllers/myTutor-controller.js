@@ -46,8 +46,18 @@ const getOpenAIResponse = async (req, res) => {
     }
     );
     if (response.data.choices[0].text) {
+        const answer = response.data.choices[0].text
+
+        const elimSpeakerName = (text) => {
+            let textArr = text.split("")
+            let index = textArr.indexOf(":")
+            let textToReturn = textArr.splice(index+1)
+            return textToReturn
+        }
+        const AIAnswerToSend = elimSpeakerName(answer)
+
         res.json({
-            message: response.data.choices[0].text
+            message: AIAnswerToSend
         })
     } else {
         res.json("Unable to get AI response")
