@@ -113,7 +113,6 @@ const MyTutorPage = () => {
 
   const clickHandler = async (e) => {
     const textToSend = e.target.innerText;
-    console.log(textToSend);
     //need to pass in text and language (to change voice)
     if (!textToSend || textToSend === " ") {
       alert("You must send text");
@@ -124,7 +123,7 @@ const MyTutorPage = () => {
         textToSynthesize: `${textToSend}`,
       })
       .then((result) => {
-        console.log(result);
+
         let audio = new Howl({
           src: [`${endPoint}/${result.data}`],
           autoplay: true,
@@ -185,11 +184,12 @@ const MyTutorPage = () => {
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
             <div className="form__button--div">
-              <AudioRecorder />
+             
               <button className="form__button--submit">SEND</button>
             </div>
           </div>
         </form>
+        <AudioRecorder />
       </section>
       <section className="info__container">
         <h2 className="info__heading">Topics</h2>

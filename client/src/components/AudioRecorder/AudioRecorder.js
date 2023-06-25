@@ -66,7 +66,7 @@ const AudioRecorder = () => {
         return theBlob;
       }
 
-      const audioFile = blobToFile(audioBlob, "toTranscribe.wav")
+      const audioFile = blobToFile(audioBlob, `${Date.now()}.wav`)
 
     //   let base64String;
 
@@ -81,17 +81,18 @@ const AudioRecorder = () => {
       formdata.append("audio", audioFile)
 
       const getTranscript = async () => {
+        console.log(formdata)
         await axios
-            .post(`${endPoint}/my-tutor/speech-to-text`, formdata, {
+            .post(`${endPoint}/my-tutor/api/transcribe`, audioFile, {
                 headers: {
-                    "Content-Type": `multipart/form-data`
+                    "Content-Type": `application/octet-stream`
                 }
             })
             .then((res) => {
                 console.log(res)
             })
             .catch((err) => {
-                console.log("Unable to reach stt node endpoint")
+                console.log(`${err}: Unable to reach stt node endpoint`)
             })
       }
       getTranscript()
@@ -132,14 +133,14 @@ const AudioRecorder = () => {
             </button>
           ) : null}
         </div>
-        {audio ? (
+        {audio && (
           <div className="audio-container">
             <audio src={audio} controls></audio>
             <a download href={audio}>
               Download Recording
             </a>
           </div>
-        ) : null}
+        )}
       </main>
     </div>
   );
