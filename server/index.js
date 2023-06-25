@@ -14,8 +14,6 @@ require("dotenv").config()
 app.use(getFormData.single())
 app.use(bodyParser.json())
 app.use(cors())
-app.use("/", express.static('/'))
-app.use(express.static('server'))
 app.use(express.static('audio'))
 
 const homePageRoutes = require("./routes/homePage.js")
