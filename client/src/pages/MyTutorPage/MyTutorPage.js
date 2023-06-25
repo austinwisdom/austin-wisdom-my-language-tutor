@@ -184,12 +184,11 @@ const MyTutorPage = () => {
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
             <div className="form__button--div">
-             
-              <button className="form__button--submit">SEND</button>
+              <AudioRecorder />
+              <button type="submit" className="form__button--submit">SEND</button>
             </div>
           </div>
         </form>
-        <AudioRecorder />
       </section>
       <section className="info__container">
         <h2 className="info__heading">Topics</h2>
