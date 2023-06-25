@@ -1,6 +1,9 @@
 import { useState, useRef } from "react";
+import { endPoint} from "../../utilities/endpoints"
+import FormData from "form-data"
 
 import "./AudioRecorder.scss";
+import axios from "axios";
 
 const mimeType = "audio/webm";
 
@@ -55,7 +58,44 @@ const AudioRecorder = () => {
       const audioBlob = new Blob(audioChunks, { type: mimeType });
       //creates a playable URL from the blob file.
       const audioUrl = URL.createObjectURL(audioBlob);
-      setAudio(audioUrl);
+
+      function blobToFile(theBlob, fileName){
+        //A Blob() is almost a File() - it's just missing the two properties below which we will add
+        theBlob.lastModifiedDate = new Date();
+        theBlob.name = fileName;
+        return theBlob;
+      }
+
+      const audioFile = blobToFile(audioBlob, "toTranscribe.wav")
+
+    //   let base64String;
+
+    //   let reader = new FileReader();
+    //     reader.readAsDataURL(audioBlob);
+    //     reader.onloadend = function () {
+    //         base64String = reader.result; 
+    //     }
+
+      const formdata = new FormData()
+      console.log(audioFile)
+      formdata.append("audio", audioFile)
+
+      const getTranscript = async () => {
+        await axios
+            .post(`${endPoint}/my-tutor/speech-to-text`, formdata, {
+                headers: {
+                    "Content-Type": `multipart/form-data`
+                }
+            })
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log("Unable to reach stt node endpoint")
+            })
+      }
+      getTranscript()
+      setAudio(audioBlob);
       setAudioChunks([]);
     };
   };
@@ -70,7 +110,7 @@ const AudioRecorder = () => {
               onClick={getMicrophonePermission}
               type="button"
             >
-              Get Microphone
+              Record
             </button>
           ) : null}
           {permission && recordingStatus === "inactive" ? (
@@ -79,7 +119,7 @@ const AudioRecorder = () => {
               onClick={startRecording}
               type="button"
             >
-              Start Recording
+              Record
             </button>
           ) : null}
           {recordingStatus === "recording" ? (

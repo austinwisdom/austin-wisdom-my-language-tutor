@@ -54,22 +54,27 @@ const StudyPage = () => {
     
         // sound.play()
 
-        axios
-            .post(`${endPoint}/study`, {
-                textToSynthesize: "See you later!"
-              })
-            .then((result) => {
-                let audio = new Howl({
-                    src: [`${endPoint}/${result.data}`],
-                    autoplay: true
+        const getAudio = () => {
+            axios
+                .post(`${endPoint}/study`, {
+                    textToSynthesize: "See you later!"
+                  })
+                .then((result) => {
+                    console.log(result)
+                    let audio = new Howl({
+                        src: [`${endPoint}/${result.data}`],
+                        autoplay: true
+                    })
+                    console.log(audio)
+                    setAudio(audio)
+                    audio.play()
                 })
-                console.log(audio)
-                setAudio(audio)
-                audio.play()
-            })
-            .catch((err) => {
-                console.log("Could not fetch study endpoint")
-            })
+                .catch((err) => {
+                    console.log("Could not fetch study endpoint")
+                })
+            }
+        await getAudio()
+        
     }
 
     return (
