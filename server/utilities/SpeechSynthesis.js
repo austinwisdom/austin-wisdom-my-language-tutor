@@ -10,7 +10,6 @@ const synthesizeSpeech = (text) => {
     return new Promise((resolve, reject) => { 
       var audioFile = `${Date.now()}.wav`;
       const audioFileToCreate = `./audio/${audioFile}`
-      // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
       
       const speechConfig = sdk.SpeechConfig.fromSubscription(SPEECH_KEY, SPEECH_REGION);
       const audioConfig = sdk.AudioConfig.fromAudioFileOutput(audioFileToCreate);
