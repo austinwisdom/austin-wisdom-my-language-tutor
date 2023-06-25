@@ -15,6 +15,10 @@ const AudioRecorder = () => {
   const [audioChunks, setAudioChunks] = useState([]);
   const [audio, setAudio] = useState(null);
 
+  useState(() => {
+    console.log(audio)
+  }, [audio])
+
   const getMicrophonePermission = async () => {
     if ("MediaRecorder" in window) {
       try {
@@ -45,8 +49,11 @@ const AudioRecorder = () => {
       if (typeof event.data === "undefined") return;
       if (event.data.size === 0) return;
       localAudioChunks.push(event.data);
+      console.log(`This is event data: ${event.data}`)
     };
+    console.log("this is start recording")
     setAudioChunks(localAudioChunks);
+    console.log(`this is localaudiochunnks: ${localAudioChunks}`)
   };
 
   const stopRecording = () => {
@@ -58,16 +65,17 @@ const AudioRecorder = () => {
       const audioBlob = new Blob(audioChunks, { type: mimeType });
       //creates a playable URL from the blob file.
       const audioUrl = URL.createObjectURL(audioBlob);
+      console.log(`This is the blob: ${audioBlob}`)
 
-      function blobToFile(theBlob, fileName){
+      function blobToFile(theBlob, fileName) {
         //A Blob() is almost a File() - it's just missing the two properties below which we will add
         theBlob.lastModifiedDate = new Date();
         theBlob.name = fileName;
         return theBlob;
       }
 
-      const audioFile = blobToFile(audioBlob, `${Date.now()}.wav`)
-
+      const audioFile = blobToFile(audioBlob, `test-${Date.now()}.wav`)
+      console.log(`This is chunks: ${audioChunks}`)
     //   let base64String;
 
     //   let reader = new FileReader();
@@ -77,13 +85,15 @@ const AudioRecorder = () => {
     //     }
 
       const formdata = new FormData()
-      console.log(audioFile)
+      console.log(`this is audiofile: ${audioFile}`)
       formdata.append("audio", audioFile)
+      console.log(`this is formdata: ${formdata}`)
+      setAudio(audioBlob);
 
       const getTranscript = async () => {
-        console.log(formdata)
+        console.log(`${endPoint}/my-tutor/api/transcribe`)
         await axios
-            .post(`${endPoint}/my-tutor/api/transcribe`, audioFile, {
+            .post(`${endPoint}/my-tutor/api/transcribe`, formdata, {
                 headers: {
                     "Content-Type": `application/octet-stream`
                 }

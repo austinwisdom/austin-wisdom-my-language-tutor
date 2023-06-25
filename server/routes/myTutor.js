@@ -7,6 +7,8 @@ const { Readable } =  require('stream');
 const  axios  =  require('axios');
 const  upload  =  multer();
 
+router.use(cors())
+
 const myTutorController = require("../controllers/myTutor-controller")
 const speechRecognitionController = require("../speechRecognition-controller")
 
@@ -14,14 +16,11 @@ const  bufferToStream  = (buffer) => {
     return  Readable.from(buffer);
   }
 
-router.route("/").get(myTutorController.myTutor)
-router.route("/:language/:topic").post(myTutorController.getOpenAIResponse)
-router.route("/:language").get(myTutorController.getTopics)
-router.route("/speech-to-text").post(speechRecognitionController.getSpeechToText)
-router.post('/api/transcribe', upload.single('file'), async (req, res) => {
+  router.post('/api/transcribe', upload.single('audio'), async (req, res) => {
     try {
-
-      const  audioFile  = req.file;
+      console.log(req.data)
+      console.log(req.body)
+      const  audioFile  = req.audio;
       if (!audioFile) {
         return res.status(400).json({ error: 'No audio file provided' });
       }
@@ -45,5 +44,11 @@ router.post('/api/transcribe', upload.single('file'), async (req, res) => {
       res.status(500).json({ error: 'Error transcribing audio' });
     }
   });
+
+router.route("/").get(myTutorController.myTutor)
+router.route("/speech-to-text").post(speechRecognitionController.getSpeechToText)
+router.route("/:language/:topic").post(myTutorController.getOpenAIResponse)
+router.route("/:language").get(myTutorController.getTopics)
+
 
 module.exports = router
