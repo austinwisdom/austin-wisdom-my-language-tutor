@@ -116,7 +116,7 @@ const MyTutorPage = () => {
     console.log(textToSend);
     //need to pass in text and language (to change voice)
     if (!textToSend || textToSend === " ") {
-      console.alert("You must send text");
+      alert("You must send text");
       return;
     }
     axios
