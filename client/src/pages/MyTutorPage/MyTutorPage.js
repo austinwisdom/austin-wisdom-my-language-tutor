@@ -86,6 +86,11 @@ const MyTutorPage = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (!message.trim()) {
+      alert("Please type a message.");
+      return;
+    }
+    e.currentTarget.disabled = true;
 
     fetch(`${endPoint}/my-tutor/${languageParam}/${topicParam}`, {
       method: "POST",
@@ -98,6 +103,7 @@ const MyTutorPage = () => {
       .then((data) => {
         setResponse(data.message);
         trackConversation(message, response);
+        e.currentTarget.disabled = false;
       })
       .catch((err) => {
         console.log("Unable to send user response");
@@ -150,32 +156,38 @@ const MyTutorPage = () => {
               return <>{phrase}</>;
             })}
           </>
-
           {response && (
             <button
-            className="conversation__button conversation__button--ai"
-            onClick={clickHandler}
-            id={response}
-          >
-            <p key={response} className="conversation__phrase">
+              className="conversation__button conversation__button--ai"
+              onClick={clickHandler}
+              id={response}
+            >
+              <p key={response} className="conversation__phrase">
                 {response}
-            </p>
-          </button>
+              </p>
+            </button>
           )}
-          
+          <div className="conversation__anchor"></div>
         </div>
         <form className="form" onSubmit={onSubmit}>
-          <label id="userInput"></label>
-          <textarea
-            className="form__textarea"
-            name="userInput"
-            id="userInput"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          ></textarea>
-          <div className="form__button--div">
-            <AudioRecorder />
-            <button className="form__button--submit">SEND</button>
+          <div>
+            <p className="form__hint">
+              HINT: Click on a phrase in the conversation to hear it spoken.
+            </p>
+          </div>
+          <div>
+            <label id="userInput"></label>
+            <textarea
+              className="form__textarea"
+              name="userInput"
+              id="userInput"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
+            <div className="form__button--div">
+              <AudioRecorder />
+              <button className="form__button--submit">SEND</button>
+            </div>
           </div>
         </form>
       </section>
