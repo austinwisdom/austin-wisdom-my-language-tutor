@@ -51,6 +51,7 @@
             color: $white;
             font-size: 1rem;
             font-weight: 700;
+            cursor: pointer;
         }
 
         &--link {
@@ -67,6 +68,7 @@
             font-size: 1rem;
             font-weight: 700;
             padding: .5rem 1rem;
+            cursor: pointer;
         }
     }
     
@@ -147,6 +149,7 @@
                 border: none;
                 border-radius: 30%;
                 background-color: $white;
+                cursor: pointer;
     
                 margin: .25rem;
     

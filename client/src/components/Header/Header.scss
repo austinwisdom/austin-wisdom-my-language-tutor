@@ -39,14 +39,11 @@
     &__navlink {
         text-decoration: none;
         color: $light-stone;
+        cursor: pointer;
 
         &.active {
             background-color: $yellow;
         }
-
-        // &:focus {
-        //     border-bottom: solid #ffde59 2px;
-        // }
     }
 
     &__profile-img {
@@ -59,12 +56,14 @@
 
     &__button {
         @include cta-primary;
+        cursor: pointer;
 
         &--img {
             background-color: $yellow;
             padding: .35rem;
             border-radius: 50%;
             border: none;
+            cursor: pointer;
 
             &:hover {
                 background-color: $dark-yellow;
@@ -76,6 +75,7 @@
             background-color: $white;
             border: none;
             width: 60%;
+            cursor: pointer;
         }
     }
 
