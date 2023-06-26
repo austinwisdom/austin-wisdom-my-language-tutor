@@ -76,6 +76,7 @@
             width: 2.8125rem;
             border-radius: 50%;
             border: .5px solid $light-stone;
+            cursor: pointer;
         }
     }
 
@@ -88,6 +89,7 @@
         text-align: center;
         background-color: $white;
         font-size: 1.25rem;
+        cursor: pointer;
 
         &:hover {
             transform: scale(1.1);
