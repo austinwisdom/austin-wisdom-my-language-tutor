@@ -13,6 +13,11 @@ const Header = () => {
       </div>
       <nav className="header__nav">
         <ul className="header__ul">
+        <li className="header__li">
+            <NavLink to={"/"} className="header__navlink">
+              <button className="header__button">HOME</button>
+            </NavLink>
+          </li>
           <li className="header__li">
             <NavLink to={"/my-tutor/en/0"} className="header__navlink">
               <button className="header__button">MyTUTOR</button>
