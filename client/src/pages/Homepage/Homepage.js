@@ -9,7 +9,8 @@ const Homepage = () => {
       <main>
         <section className="home__container">
           <article className="home__stats home__stats--progress">
-            <h1 className="home__heading">Smitty Werbenjägermanjensen</h1>   
+            <h2 className="home__heading home__heading--welcome">Welcome back</h2>
+            <h1 className="home__heading home__heading--name">Smitty Werbenjägermanjensen!</h1>   
             <div className="challenge__div challenge__div--progress">
               <h2>Leaderboard Rank: <h2 className="number-one">#1</h2> </h2>
               <h2>Favorite languages: 🇩🇪 🇺🇲 🇧🇷</h2>

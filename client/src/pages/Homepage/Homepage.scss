@@ -28,6 +28,14 @@
 
     &__heading {
         font-size: 2.5rem;
+
+        &--welcome {
+            margin-bottom: 0;
+        }
+
+        &--name {
+            margin-top: 1rem;
+        }
     }
 }
 
