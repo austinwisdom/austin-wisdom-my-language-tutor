@@ -1,11 +1,7 @@
 const OpenAI = require('openai')
 const { Configuration, OpenAIApi } = OpenAI
-const express = require('express')
 const knex = require('knex')(require('../knexfile'))
 
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const app = express()
 require("dotenv").config()
 const { OPENAI_API_KEY } = process.env
 
@@ -13,7 +9,6 @@ const configuration = new Configuration({
     organization: "org-xkBxqgwQ5n9LAYYrNSisAo54",
     apiKey: OPENAI_API_KEY,
 });
-
 const openai = new OpenAIApi(configuration);
 
 
