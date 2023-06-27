@@ -1,6 +1,3 @@
-import Footer from "../../components/Footer/Footer";
-import ProgressGauges from "../../components/ProgressGauges/ProgressGauges";
-
 import "./Homepage.scss";
 
 const Homepage = () => {

@@ -5,8 +5,6 @@ import { Howl, Howler } from "howler";
 import { useState, useEffect } from "react";
 import { endPoint } from "../../utilities/endpoints";
 
-import AudioRecorder from "../../components/AudioRecorder/AudioRecorder";
-
 import flagUS from "../../assets/icons/flag-us.png";
 import flagES from "../../assets/icons/flag-es.png";
 import flagBR from "../../assets/icons/flag-br.png";
@@ -113,7 +111,6 @@ const MyTutorPage = () => {
 
   const clickHandler = async (e) => {
     const textToSend = e.target.innerText;
-    //need to pass in text and language (to change voice)
     if (!textToSend || textToSend === " ") {
       alert("You must send text");
       return;
@@ -184,7 +181,6 @@ const MyTutorPage = () => {
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
             <div className="form__button--div">
-            {/* <AudioRecorder /> */}
               <button type="submit" className="form__button--submit">SEND</button>
             </div>
           </div>

@@ -32,15 +32,15 @@ Phase 1 was completed for my BrainStation capstone project, presented on June 28
 
 To be completed:
 
-> Finish implementing speech-to-text funcionality to allow users to speak more.
+- Finish implementing speech-to-text funcionality to allow users to speak more.
 
-> Build in Google login authentication to allow multiple users to securely access the site.
+- Build in Google login authentication to allow multiple users to securely access the site.
 
-> Add more tables to the database to track user data and progress.
+- Add more tables to the database to track user data and progress.
 
-> Add more conversation scenarios for additional languages.
+- Add more conversation scenarios for additional languages.
 
-> Add more lessons and word practice page for flashcard-style vocabulary practice.
+- Add more lessons and word practice page for flashcard-style vocabulary practice.
 
 
 # Final Considerations
