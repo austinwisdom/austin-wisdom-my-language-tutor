@@ -1,13 +1,15 @@
+//========Could not locate OTF files on Google fonts, but the fallback font is listed in App.scss
+
 @font-face {    
     font-family:'LeagueSpartan';
-    src: url(../../assets/fonts/LeagueSpartan-VariableFont_wght.ttf) format('opentype'),
+    src: url(../../assets/fonts/LeagueSpartan-VariableFont_wght.ttf) format('truetype'),
     url(../../assets/fonts/static/LeagueSpartan-Regular.ttf) format("truetype");
     font-weight: 400;
 }
 
 @font-face {
-    font-family:'LegueSpartanBold';
-    src: url(../../assets/fonts/LeagueSpartan-VariableFont_wght.ttf) format("opentype"), 
+    font-family:'LeagueSpartanBold';
+    src: url(../../assets/fonts/LeagueSpartan-VariableFont_wght.ttf) format("truetype"), 
     url(../../assets/fonts/static/LeagueSpartan-Bold.ttf) format("truetype");
     font-weight: 700;
 }

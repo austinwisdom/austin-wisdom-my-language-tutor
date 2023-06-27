@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Howl, Howler } from "howler";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { endPoint } from "../../utilities/endpoints";
 import speakerIcon from "../../assets/icons/speaker-black.png";
@@ -28,15 +28,15 @@ const StudyPage = () => {
     },
   ]);
 
-  const [audio, setAudio] = useState("");
+  const [_audio, setAudio] = useState("");
 
-  const goBack = (e) => {
+  const goBack = () => {
     if (lessonSlide > 0) {
       setLessonSlide(lessonSlide - 1);
     }
   };
 
-  const goForward = (e) => {
+  const goForward = () => {
     if (lessonSlide < lessonSlideArray.length - 1) {
       setLessonSlide(lessonSlide + 1);
     }
@@ -44,14 +44,11 @@ const StudyPage = () => {
 
   const clickHandler = async (e) => {
     const textToSend = e.target.id;
-    console.log(textToSend);
-    //need to pass in text and language (to change voice)
     axios
       .post(`${endPoint}/study`, {
         textToSynthesize: `${textToSend}`,
       })
       .then((result) => {
-        console.log(result);
         let audio = new Howl({
           src: [`${endPoint}/${result.data}`],
           autoplay: true,

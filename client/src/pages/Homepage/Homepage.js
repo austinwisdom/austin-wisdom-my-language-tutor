@@ -14,7 +14,6 @@ const Homepage = () => {
               <h2>230,326 words spoken</h2>
               <h2>🔥 976 day streak!</h2>
             </div>
-          
           </article>
           <article className="home__stats">
             <div className="challenge__div">
