@@ -4,9 +4,6 @@ const app = express()
 const multer = require("multer")
 const getFormData = multer()
 
-const OpenAI = require('openai')
-const { Configuration, OpenAIApi } = OpenAI
-
 const cors = require('cors')
 const bodyParser = require('body-parser')
 require("dotenv").config()

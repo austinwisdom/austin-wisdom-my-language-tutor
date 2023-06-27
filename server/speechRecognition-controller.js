@@ -26,7 +26,6 @@ const getSpeechToText = async (req, res) => {
         return  Readable.from(buffer);
       }
 
-    console.log(req.body)
     const fileToSend = req.body.url
     const filePath = path.join(fileToSend)
     const model = "whisper-1"
@@ -45,7 +44,6 @@ const getSpeechToText = async (req, res) => {
                     }
                 })
                 .then((res) => {
-                    console.log(res.data)
                     resolve(res.data)
                 })
                 .catch((err) => {
