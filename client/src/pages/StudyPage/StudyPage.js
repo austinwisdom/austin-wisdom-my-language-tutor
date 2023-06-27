@@ -17,14 +17,15 @@ const StudyPage = () => {
       lesson_title: "What's up?",
       lesson_id: "Advanced I: Lesson 01",
       info_title: "Informal Greetings",
-      info: '"What\'s up?" is one of the most common ways that Americans greet each other. It is considered informal, but you can still hear it in some professional environments.',
+      info: '"What\'s up?" is one of the most common ways that Americans greet each other. It is considered informal, but you can still hear it in some professional environments. It is literally asking, "what is up?", but usually is just a way to ask how someone is doing.',
       info_title2: "",
     },
     {
       id: 1,
       lesson_title: "What's up?",
       lesson_id: "Advanced I: Lesson 01",
-      info: "This is the second slide",
+      info_title: "How should I respond?",
+      info: "There are a couple of ways that native speakers tend to respond to 'What's up'? You can either just say 'good, how about you?' or tell them what you're currently doing. The second option is more common if someone is calling you and wants to know what you're doing to potentially make plans to do something or go somewhere.",
     },
   ]);
 
