@@ -1,4 +1,4 @@
-const studySpace = (req, res) => {
+const studySpace = (_req, res) => {
     res.status(200).json("This is study space")
 }
 

@@ -3,11 +3,11 @@ const synthesizeSpeech = (text) => {
     "use strict";
     
     var sdk = require("microsoft-cognitiveservices-speech-sdk");
-    var readline = require("readline");
+    var _readline = require("readline");
     require("dotenv").config()
     const { SPEECH_KEY, SPEECH_REGION } = process.env
 
-    return new Promise((resolve, reject) => { 
+    return new Promise((resolve, _reject) => { 
       var audioFile = `${Date.now()}.wav`;
       const audioFileToCreate = `./audio/${audioFile}`
       

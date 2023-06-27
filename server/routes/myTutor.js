@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const  axios  =  require('axios');
 const cors = require('cors');
 const  multer  =  require('multer')
 const  FormData  =  require('form-data');
 const { Readable } =  require('stream');
-const  axios  =  require('axios');
+
 const  upload  =  multer();
 
 router.use(cors())
@@ -18,13 +19,10 @@ const  bufferToStream  = (buffer) => {
 
   router.post('/api/transcribe', upload.single('audio'), async (req, res) => {
     try {
-      console.log(req.data)
-      console.log(req.body)
       const  audioFile  = req.audio;
       if (!audioFile) {
         return res.status(400).json({ error: 'No audio file provided' });
       }
-      console.log("this is a test")
       const  formData  =  new  FormData();
       const  audioStream  =  bufferToStream(audioFile.buffer);
       formData.append('file', audioStream, { filename: 'audio.mp3', contentType: audioFile.mimetype });
@@ -36,7 +34,6 @@ const  bufferToStream  = (buffer) => {
           "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
         },
       };
-      // Call the OpenAI Whisper API to transcribe the audio
       const  response  =  await axios.post('https://api.openai.com/v1/audio/transcriptions', formData, config);
       const  transcription  = response.data.text;
       res.json({ transcription });
