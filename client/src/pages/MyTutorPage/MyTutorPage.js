@@ -181,6 +181,9 @@ const MyTutorPage = () => {
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
             <div className="form__button--div">
+              <button className="form__button--record">RECORD</button>
+            </div>
+            <div className="form__button--div">
               <button type="submit" className="form__button--submit">SEND</button>
             </div>
           </div>
